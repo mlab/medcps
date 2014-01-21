@@ -93,7 +93,7 @@
             <div class="collapse navbar-collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="index.html" target="_self" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <a href="index.html" target="_self" >
                             Home
                             <!--<i class="icon-angle-down"></i>-->
                         </a><!--
@@ -140,7 +140,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <a href="#">
                             Publications
                             <!--<i class="icon-angle-down"></i>-->
                         </a>
@@ -161,7 +161,7 @@
                         </ul>-->
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <a href="#">
                             People
                             <!--<i class="icon-angle-down"></i>-->
                         </a>
@@ -175,7 +175,7 @@
                         </ul>-->
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <a href="#">
                             Contact us
                             <!--<i class="icon-angle-down"></i>-->
                         </a>
@@ -238,11 +238,11 @@
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
         <h1 class="pull-left">FAQs</h1>
-        <ul class="pull-right breadcrumb">
+        <!--<ul class="pull-right breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="">Pages</a></li>
             <li class="active">FAQ</li>
-        </ul>
+        </ul>-->
     </div>
 </div><!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
@@ -252,6 +252,8 @@
 	<div class="row">            
         <div class="col-md-9">
 			<!-- General Questions -->
+            
+            <p>The questions below are provided by the Pacemaker Challenge community.</p>
             <div class="headline"><h2>General</h2></div>
             <div class="panel-group acc-v1 margin-bottom-40" id="accordion">
                 <div class="panel panel-default">
@@ -377,21 +379,409 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
-                                7. Helvetica craft beer labore wes anderson cred nesciu ntlife richardson?
+                                3. Which parts of the environment have you modeled?
                             </a>
                         </h4>
                     </div>
                     <div id="collapseSeven" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                            <ul class="list-unstyled">
+                                <li> <i class="icon-ok color-green"></i><strong>Virtual Heart Model</strong> - It is important to verify and test the closed-loop heart and pacemaker system. We have a heart model to interface with pacemaker models (Timed Automata, Stateflow/Simulink), pacemakers implemented on microcontroller platforms and also real pacemakers manufactured by Boston Scientific, Medtronic and St. Jude. Currently the heart model covers the following electrophysiological arrhythmias:
+                                <ul>
+                                <li>
+                                Normal Sinus Rhythm
+                                </li>
+                                
+                                <li> 
+                                Bradycardia</li>
+                                <li>
+                                Heart block</li>
+                                <li>
+                                Supraventricular Tachycardia</li>
+                               <li>
+                               Lead displacement</li>
+                               <li>
+                               Lead Cross-talk and race conditions</li>
+                               <li>
+                               Pacemaker Mediated Tachycardia</li>
+                               
+                            </ul>     
+                                </li>
+                                The heart model has a common kernel and exposes a functional interface} for both simulation-based and platform testing. It also exposes a formal interface of the event timing for verification of the pacemaker timing properties.
+                                <li><i class="icon-ok color-green"></i> <strong>Blood-oxygen Physiological Modeling:</strong> For quantative verification of the closed-loop system with costs such as efficacy of therapy and device energy consumption, we have developed parts of the blood-oxygen model which interfaces with the heart and pacemaker closed-loop system. This way, we can evaluate the effectiveness of therapies related to rate-response, pacemaker mediated tachycardia and newer algorithms.   </li>
+                                
+                               
+                            </ul>
                         </div>
                     </div>
+                </div>
+                      <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                                4. Which process phases have you considered?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseEight" class="panel-collapse collapse">
+                        <div class="panel-body">
+                              We focus on the requirement specification, software design, testing for certification. Our primary contribution is the development of an end-to-end model-based design approach for rapid certification of the design process. This incorporates: 
+                            <ul class="list-unstyled">
+                                <li><i class="icon-ok color-green"></i> <strong>Formal Modeling of the Heart</strong> -  timing behaviors of electric conduction of the heart are modeled by a network of timed automata. This helps us to specify requirements for pacemaker under specific heart conditions. </li>
+                                <li><i class="icon-ok color-green"></i> <strong>Formal Modeling of the Pacemaker</strong> - majority of timing aspects in the Boston Scientific pacemaker specification are implemented using timed automata. Timing properties have been checked and verified. </li>
+                                <li><i class="icon-ok color-green"></i> <strong>Model Translation of Verified Pacemaker Models</strong> -  Automated translation of UPPAAL timed automata pacemaker model to Stateflow/Simulink while preserving verified timing properties.</li>
+                                <li><i class="icon-ok color-green"></i> <strong>Simulation-based Testing of the Closed-loop system</strong> -  Detailed heart model has also been implemented in Matlab and Simulink and interfaces with the pacemaker Stateflow/Simulink model.</li>
+                                <li><i class="icon-ok color-green"></i> <strong>Code-generation of Verified Pacemaker Model</strong> -  From the above pacemaker model we have generated code for a variety of microcontroller architectures.</li>
+                                <li><i class="icon-ok color-green"></i> <strong>Closed-loop Platform Testing</strong> - The Heart-on-a-Chip platform incorporates the Virtual Heart Model implemented on an FPGA hardware platform and interfaces with an automated hardware tester for timing analysis. It also interfaces with real pacemakers for closed-loop platform testing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                </div>
+                
+               
+                
+                <div class="headline">
+                <h2>Modeling</h2></div>
+                   <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseten">
+                                1. What modeling formalisms did you use? Why?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseten" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Timed Automata and the Mathworks toolchain. The reasons for using timed automata are: </p>
+                            <ul class="list-unstyled">
+                                <li><i class="icon-ok color-green"></i> Timed automata is suitable for modeling timing behaviors of a system. The coordinated contractions of the heart are based on timing behaviors of its electrical activities, which makes timed automata a good formalism to model both the heart and the pacemaker.</li>
+                                
+                                <li><i class="icon-ok color-green"></i> Timed automata is well studied and tools like UPPAAL are available and mature.</li>
+                                <li><i class="icon-ok color-green"></i> Most pacemaker functions we would like to cover can be modeled by timed automata </li>
+                               
+                            </ul>
+                            We also use the Mathworks Stateflow/Simulink/Embedded Coder toolchain as it is practical and is widely used in industry. All models and tools are publicly available. The implementation is clean and moderately easy to adopt. 
+
+The model is scalable which allows for more than enough refinement to check a large variety of common properties. See publications for more details.                            
+                        </div>
+                    </div>
+                </div>
+                
+                   <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">
+                                2. Are the formalisms used rigorous?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseEleven" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Timed automata is a rigorous formulation. </p>
+                                                   
+                        </div>
+                    </div>
+                </div>
+                
+                   <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve">
+                                3. How accessible are the modeling methods and notations for practicing engineers? (e.g. need training, fairly accessible)
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwelve" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Timed automata is an extension of state machine with real-time clocks, which is intuitive for engineers. The tools and Temporal Logic are intuitive to learn with minimal training.</p>
+                                                    
+                        </div>
+                    </div>
+                </div>
+                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse13">
+                                4. Which aspects did you not model? Why?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse13" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            
+                            <ul class="list-unstyled">
+                                <li><i class="icon-ok color-green"></i> <strong>On the heart side:</strong> We did not model non-timing related properties such as the mechanical contractions of the heart muscle. The performance of heart pumping can be inferred by the electrical behaviors of the heart (i.e. which is how the pacemaker interacts with the heart). This point is shown to be valid in the Cardiac Electrophysiology domain. </li>
+                                
+                                <li><i class="icon-ok color-green"></i> <strong>On the pacemaker side:</strong> We did not model pacemaker components other than the core diagnosis/therapy software. We only focused on potential safety violations caused by the diagnosis/therapy software. The interaction between the diagnosis/therapy software and the rest of the pacemaker can be isolated by safety protocols thus the rest of the pacemaker has little impact on the safety of the diagnosis/therapy software. </li>
+                                
+                            </ul>                            
+                        </div>
+                    </div>
+                </div>
+                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse14">
+                                5. What are the most difficult aspects to model?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse14" class="panel-collapse collapse">
+                        <div class="panel-body">
+                           
+                            <ul class="list-unstyled">
+                                <li><i class="icon-ok color-green"></i> <strong>On the heart side</strong>: How to use abstraction to cover different heart conditions and refine the heart model to pinpoint a specific heart condition. We have implemented a Counter-Example Guided Abstraction Refinement (CEGAR) methodology to verify complex closed-loop properties such as Endless-loop Tachycardia (pacemaker mode switch operation) and Pacemaker Mediated Tachycardia.</li>
+                                
+                                <li><i class="icon-ok color-green"></i> <strong>On the pacemaker side:</strong> Advanced features which operate on heart condition history. Some of them cannot be modeled using Timed Automata. </li>
+                               
+                            </ul>                            
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse15">
+                                6. What is the cost of the modeling?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse15" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>All our models, code and platforms are publicly available for the research community. The UPPAAL tool is free and open sourced. Mathworks tools require a license to be purchased. The models themselves are easy to use and require less than a week's effort by a software engineer with 5 years of experience.</p>
+                                                    
+                        </div>
+                    </div>
+                </div>
+                <div class="headline">
+                <h2>Verification & Validation</h2></div>
+                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse16">
+                                1. What properties have you verified?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse16" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>We have verified safety properties regarding avoidance of unsafe closed-loop states (i.e. low heart rate, paced high heart rate) and unsafe closed-loop executions (i.e. existence of Pacemaker Mediated Tachycardia).</p>
+                                               
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse17">
+                                2. What properties could be ensured by construction?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse17" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>Timing and correctness of software properties are verified at the abstract pacemaker model level. These properties are maintained in the Stateflow/Simulink by the UPP2SF model translation tool. The verified models are used to generate operational pacemaker code. Thus, our end-to-end model-based toolchain allows us to proceed from verified models to verified code.</p>
+                                                    
+                        </div>
+                    </div>
+                </div>
+                   
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse18">
+                                3. What methods did you use for the verification?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse18" class="panel-collapse collapse">
+                        <div class="panel-body">
+                             Model checking of timed automata models. 
+                            
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse19">
+                                4. How accessible are the verification methods for practicing engineers?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse19" class="panel-collapse collapse">
+                        <div class="panel-body">
+                             Fairly accessible. 
+                            
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse20">
+                                5. How did you validate the system?
+                            </a>
+                        </h4>
+                    </div>
+                  <div id="collapse20" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            The heart model was based on techniques and terminologies used during clinical practices and the model has been validated by the Director of Cardiac Electrophysiology of the Philadelphia VA Hospital and the University of Pennsylvania Hospital. These hospitals are among the top hospitals responsible for the most cardiac ablation and cardiac device implants in the US. 
+
+We have also demonstrated that our model captures the timing behaviors of a real hearts (given the same input signals.) See <a href="http://youtu.be/jJjgOFxQOQ8?t=2m29s" target="_blank">Atrial Flutter video here</a></div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse21">
+                                6. Is the functional design verified against the requirements specification? How complete?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse21" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Yes. For each timing cycle of the pacemaker we specified a property to verify whether the requirement has been satisfied.
+                            
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse22">
+                                7. Have you simulated the model?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse22" class="panel-collapse collapse">
+                        <div class="panel-body">
+                           Yes. The models of the closed-loop system have been simulated both in model checker (UPPAAL) and Simulink. 
+                            
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="headline"><h2>Tools</h2></div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse23">
+                                1. Which tools did you use? What is their maturity?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse23" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        <ul class="list-unstyled">
+                                <li><i class="icon-ok color-green"></i> <strong>Verification:</strong> we use model checker UPPAAL. It is a mature tool that has been used for various applications.</li>
+                                
+                                <li><i class="icon-ok color-green"></i> <strong>Model Translation: </strong> from UPPAAL to Simulink we use UPP2SF which is developed by Pajic et.al. The tool is not fully automated yet and requires some manual effort.</li>
+                               <li><i class="icon-ok color-green"></i> <strong>Simulation & Code Generation: </strong>we use Matlab/Simulink which is widely adopted by both academia and industry. Even though Stateflow does not have formal semantics the UPP2SF tool ensures verified properties are maintained and the practicality of using Mathworks tools makes it more available than academic tools for code generation.</li>
+                            </ul>
+                           
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse24">
+                                2. How much expertise is expected from the users of these tools?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse24" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          For UPPAAL, the user needs to know basic state transition system and the ability  to specify requirements using temporal logic. For Matlab/Simulink the user requires basic understanding of programming and syntax of Simulink.
+                            
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="headline"><h2>Certification</h2></div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse25">
+                                1. What aspects of the functional safety certification did you cover?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse25" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          None.
+                            
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse26">
+                                2. How have you used this challenge?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse26" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        I personally have used the challenge as a case study of my research for developing a model-based design framework for Cyber-Physical Systems like medical devices. 
+
+                        <ul class="list-unstyled">
+                                <li><i class="icon-ok color-green"></i> The Heart-on-a-Chip platform won the First Prize in the 9th World Embedded Systems Competition (Medical Devices category), Seoul, Korea 2012. </li>
+                                
+                                <li><i class="icon-ok color-green"></i>  Our work has won the Best Student Paper Award in the 2012 Real-Time System Conference (RTAS) at CPSWeek 2012.</li>
+                               <li><i class="icon-ok color-green"></i> Our work was nominated for Best Paper at TACAS 2012.</li>
+                            </ul>
+                           Several research groups are using our models and tools. These include Marta Kwiatkowska, University of Oxford and Sanjit Seshia, UC Berkeley, etc. The models have been downloaded over 100 times in the past year. 
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
                 </div>
             </div><!--/acc-v1-->
             <!-- End General Questions -->
 
 			<!-- Other Questions -->
-            <div class="headline"><h2>Other Questions</h2></div>
+            <!--<div class="headline"><h2>Other Questions</h2></div>
             <div class="panel-group acc-v1" id="accordion-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -471,7 +861,7 @@
                         </div>
                     </div>
                 </div>
-            </div><!--/acc-v1-->
+            </div>--><!--/acc-v1-->
             <!-- End Other Questions -->
 		</div><!--/col-md-9-->
         
@@ -509,20 +899,11 @@
             <div class="magazine-sb-social margin-bottom-20">
                 <div class="headline headline-md"><h2>Social Icons</h2></div>
                 <ul class="social-icons social-icons-color">
-                    <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
                     <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
-                    <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
-                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
                     <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
-                    <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
                     <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
-                    <li><a href="#" data-original-title="Dropbox" class="social_dropbox"></a></li>
                     <li><a href="#" data-original-title="Picasa" class="social_picasa"></a></li>
-                    <li><a href="#" data-original-title="Spotify" class="social_spotify"></a></li>
-                    <li><a href="#" data-original-title="Jolicloud" class="social_jolicloud"></a></li>
-                    <li><a href="#" data-original-title="Wordpress" class="social_wordpress"></a></li>
                     <li><a href="#" data-original-title="Github" class="social_github"></a></li>
-                    <li><a href="#" data-original-title="Xing" class="social_xing"></a></li>
                 </ul>
                 <div class="clearfix"></div>                
             </div>
