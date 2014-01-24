@@ -302,21 +302,49 @@
                             <img src="assets/img/main/pacemaker.png" alt="" width="100" class="pull-right lft-img-margin img-width-100">
                             <ul class="list-unstyled">
                               <li>
-                                <h4><i class="icon-thumbs-down color-red"></i>Over <strong>600,000</strong> cardiac medical devices recalled from 1990-2000.</h4>
+                                <h4><i class="icon-thumbs-down color-red"></i>Over <strong class="color-red">600,000</strong> cardiac medical devices recalled from 1990-2000.</h4>
                               </li>
-                              <li><h4><i class="icon-thumbs-down color-red"></i><strong>40%</strong> of recent recalls were due to <strong>software issues </strong></h4></li>
-                              <li><h4><i class="icon-hand-right color-green"></i>It is essential to guarantee the <strong>safety</strong> and <strong>efficacy</strong> of the device software</h4></li>
+                              <li><h4><i class="icon-thumbs-down color-red"></i><strong class="color-red">40%</strong> of recent recalls were due to <strong class="color-red">software issues </strong></h4></li>
+                              <!--<li><h4><i class="icon-hand-right color-green"></i>It is essential to guarantee the <strong>safety</strong> and <strong>efficacy</strong> of the device software</h4></li>-->
                              
                           </ul>
+                         <blockquote>
+                        <h3>It is essential to guarantee the <strong class="color-green">safety</strong> and <strong class="color-green">efficacy</strong> of the device software</h3>
+                        
+                    </blockquote>   
                       </div>
                     </div>
                 </div>
-
+<div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                <strong>FDA Pre-market Certification and the State-of-the-art Evaluations</strong>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        <img src="assets/img/main/fda-logo.jpg" alt="" width="150" class="pull-right lft-img-margin img-width-150">
+                           Currently the US FDA requires the device manufacturers to submit proofs for:
+                            <ul class="list-unstyled">
+                              <li>
+                                <p><i class="icon-hand-right color-red"></i><strong>The final product:</strong> The safety and efficacy of the device itself</p>
+                              </li>
+                              <li>
+                                <p><i class="icon-hand-right color-red"></i><strong>The development process: </strong>Rigorous design process which provides <strong class="color-red">traceability</strong> of requirements</p>
+                              </li>
+                              
+                          </ul> 
+                          Currently the device manufacturers use <strong class="color-red">open-loop testing</strong> to evaluate the safety of the device and there is <strong class="color-red">no formal methodologies</strong> during the design process. 
+                        </div>
+                    </div>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                <strong>The state-of-the-art pacemaker software certification & evaluation and their problems</strong>
+                                <strong>The problem of open-loop testing</strong>
                             </a>
                         </h4>
                         
@@ -324,31 +352,11 @@
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
                             <img src="assets/img/main/open-loop.png" alt="" width="300" class="pull-right lft-img-margin img-width-100">
-                            Currently the US FDA requires the device manufacturers to submit proofs for:
-                            <ul class="list-unstyled">
-                              <li>
-                                <h4><i class="icon-thumbs-down color-red"></i>Over <strong>600,000</strong> cardiac medical devices recalled from 1990-2000.</h4>
-                              </li>
-                              <li><h4><i class="icon-thumbs-down color-red"></i><strong>40%</strong> of recent recalls were due to <strong>software issues </strong></h4></li>
-                              <li><h4><i class="icon-hand-right color-green"></i>It is essential to guarantee the <strong>safety</strong> and <strong>efficacy</strong> of the device software</h4></li>
-                             
-                          </ul>
+                                                       
+                            <p>During the past decades, pacemakers implanted into patients have recorded episodes of closed-loop interactions (Senario 1 ~ Senario N) between the heart in different conditions (Heart 1 ~ Heart N) and the pacemaker . The recordings are either appropriate pacemaker behavior in response to heart condition which all new pacemakers should also have, or inappropriate pacemaker behavior so that the new pacemakers should avoid. In order to evaluate the performance of a new pacemaker design (Pacemaker X), the inputs from the hearts in those recordings, representing different heart conditions, are fed into the new pacemaker and the outputs of the new pacemaker are compared to the recorded outputs in those senarios. </p>
                             
-                            evaluate pacemaker software by <strong>open-loop testing</strong>. During the past decades, pacemakers implanted into patients have recorded episodes of closed-loop interactions between the heart and the pacemaker. 
-                            <ul class="list-unstyled">
-                              <li><i class="icon-thumbs-down color-red"></i>
-                            Some of them are regarded as inappropriate and should be avoided by 
-                            </li>
-                            <li><i class="icon-thumbs-up color-green"></i>
-                            Some of them are regarded as inappropriate and should be avoided by 
-                            </li>
-                            </ul>
-                            <ul class="list-unstyled">
-                              <li><i class="icon-ok color-green"></i> <strong>Software engineers</strong> overseeing requirements, specification and testing in medical device manufacturing companies</li>
-                                <li><i class="icon-ok color-green"></i> <strong>Regulatory authorities</strong> such as the US Food and Drug Administration (FDA) for medical device software development process improvements</li>
-                                <li><i class="icon-ok color-green"></i> <strong>Cardiac rhythm therapy algorithm designers</strong> from both academia and industry.</li>
-                                
-                          </ul>
+                            <p><strong class="color-red">The problem of open-loop testing</strong> is that the input signals from heart do not capture the heart physiology and will not change to different pacemaker outputs. Given a closed-loop interaction between Heart i and Pacemaker i and feed its heart input signals to Pacemaker X will not capture the closed-loop behavior of Pacemaker X under heart condition i. In order to evaluate pacemaker executions under different heart conditions, especially the executions with adquate depth, there has to be a model of the heart which can capture the physiological conditions of the heart and respond to pacemaker outputs.</p>
+                            
                       </div>
                     </div>
                 </div>
@@ -363,8 +371,11 @@
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <p>Our Heart-on-a-Chip, Virtual Heart Model, Model Checking and end-to-end Model-based Design testing approach have been designed, published and are currently in the prototyping phase. This puts us in the TR4 level of readiness according to the <a href="http://www.lbl.gov/dir/assets/docs/TRL\ guide.pdf" target="_blank">DoE Technology Readiness Assessment Guide</a> (page 9)</p>
-                                                    
+                        <img src="assets/img/main/MBD_heart.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
+                            <p>Our Heart-on-a-Chip, Virtual Heart Model, Model Checking and end-to-end Model-based Design testing approach have been designed, published and are currently in the prototyping phase. This puts us in the TR4 level of readiness according to the </p>
+                                              <ul class="list-unstyled">
+                                <li><i class="icon-ok color-green"></i> </li>
+                                </ul>      
                       </div>
                     </div>
                 </div>
