@@ -315,6 +315,45 @@
                       </div>
                     </div>
                 </div>
+                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                <strong>Cyber Physical Challenges for Medical Devices Evaluation</strong>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="list-unstyled">
+                              <li>
+                                <i class="icon-hand-right color-red"></i> <strong>The Pacemaker (and other medical devices):</strong>
+                                <ul>
+                                <li> Autonomous device with minimum human interaction, therefore has to be able to operate under all possible conditions.
+</li>
+<li>Limited diagnostic capability, inevitably leading to false-positives and false-negatives, and limited therapy capability, being able to treat the disease to a certain degree.  
+</li>
+<li>It is the safety of the patient we care about. Therefore the safety of the pacemaker must be evaluated in closed-loop within its environment
+</li>
+                               </ul>
+                                <li>
+                                <i class="icon-hand-right color-red"></i> <strong>The physical plant:</strong>
+                                <ul>
+                                <li> Not only the heart, but also the rest of the body
+
+</li>
+<li>Different dynamics even in a single patient
+
+</li>
+<li>Each condition has its own corresponding optimal condition 
+
+</li>
+                               </ul>
+                                </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -372,28 +411,57 @@
                     <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
                         <img src="assets/img/main/MBD_heart.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
-                            <p>Our Heart-on-a-Chip, Virtual Heart Model, Model Checking and end-to-end Model-based Design testing approach have been designed, published and are currently in the prototyping phase. This puts us in the TR4 level of readiness according to the </p>
+                            <p>We developed a model-based design framework for pacemaker software. A heart model structure was designed based on the electrophysiology of the heart. At each development stage a version of the heart model is available to interact with the pacemaker model/implementation.</p>
                                               <ul class="list-unstyled">
-                                <li><i class="icon-ok color-green"></i> </li>
+                                <li><i class="icon-ok color-green"></i> At verification level we have a set of <strong class="color-green">non-deterministic</strong> version of our heart models with different abstraction level which covers all possible inputs to the pacemaker under different heart conditions. Depending on the condition of the safety/efficacy properties, we choose heart model with appropirate structure and abstraction level to cover the inputs to the pacemaker under heart conditions specified in the properties. </li>
+                                <li><i class="icon-ok color-green"></i>
+                                At Simulation level the non-determinism of our heart model are resolved by linear interpolation of the parameter ranges. The <strong class="color-green">deterministic</strong> version of our heart model responds to pacemaker pacing signals the same way as a real heart. 
+                                </li>
+                                <li><i class="icon-ok color-green"></i>
+                                The deterministic heart model can be translated into HDL code by Mathworks HDL coder and implemented on a FPGA chip. With appropriate analog interface, the platform can be used for closed-loop testing of pacemaker implementations.
+                                </li>
                                 </ul>      
                       </div>
                     </div>
                 </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                <strong>Cyber Physical Challenges for Pacemaker Evaluation</strong>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            We have invested 4 years with two productive Ph.D. students in this project. 
-                        </div>
-                    </div>
+                <div class="headline"><h2>Heart Modeling</h2></div>
+                
+ <div class="row tab-v3">
+                <div class="col-sm-3">
+                    <ul class="nav nav-pills nav-stacked"> 
+                        <li class="active"><a href="#home-2" data-toggle="tab"><i class="icon-heart"></i>Tissue Model</a></li>
+                        <li><a href="#profile-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 1</a></li>
+                        <li><a href="#messages-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 2</a></li>
+                        <li><a href="#settings-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 3</a></li>                        
+                    </ul>                    
                 </div>
+                <div class="col-sm-9">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home-2">
+                            <h4>Heading Sample 1</h4>
+                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum <strong>ivamus imperdiet</strong> condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc.</p> 
+                            <p>Pellentesque <strong>fermentum vivamus</strong> imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac felis consectetur id. Donec eget orci metusvivamus imperdiet.</p>                        
+                        </div>
+                        <div class="tab-pane" id="profile-2">
+                            <img alt="" class="pull-left lft-img-margin img-width-200" src="assets/img/main/5.jpg">                         
+                            <h4>Heading Sample 2</h4>
+                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
+                        </div>
+                        <div class="tab-pane" id="messages-2">
+                            <h4>Heading Sample 3</h4>
+                            <p><img alt="" class="pull-right rgt-img-margin img-width-200" src="assets/img/main/6.jpg"> <strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                        </div>
+                        <div class="tab-pane" id="settings-2">
+                            <img alt="" class="pull-left lft-img-margin img-width-200" src="assets/img/main/7.jpg">                         
+                            <h4>Heading Sample 4</h4>
+                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
+                        </div>
+                    </div>                                    
+                </div>
+            </div>            
+        </div>
+        
+               
 
 <div class="headline"><h2>Scope</h2></div>
                 <div class="panel panel-default">
