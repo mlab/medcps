@@ -114,10 +114,10 @@
                             <i class="icon-angle-down"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="page_about.html">Heart Modeling for Closed-loop Evaluation of Pacemakers</a></li>
-                            <li><a href="page_about1.html">Pacemaker Software Verification</a></li>
-                            <li><a href="page_services.html">Model-based Design for Medical Device Software</a></li>
-                            <li><a href="page_services1.html">Physiological Control Systems</a></li>
+                            <li><a href="VHM.html">Heart Modeling for Closed-loop Evaluation of Pacemakers</a></li>
+                            <li><a href="verification.html">Pacemaker Software Verification</a></li>
+                            <li><a href="MBD.html">Model-based Design for Medical Device Software</a></li>
+                            <li><a href="physiology.html">Physiological Control Systems</a></li>
                            <!-- <li><a href="page_pricing.html">Pricing Tables</a></li>
                             <li><a href="page_invoice.html">Invoice Page</a></li>
                             <li><a href="page_meet_our_team.html">Meet Our Team</a></li>
@@ -444,7 +444,18 @@
                     <div id="collapse4" class="panel-collapse collapse">
                         <div class="panel-body">
                         
-                            <p> We chose Timed Automata as the formalism for the heart model since the reachability problem for timed automata is decidable, allowing us to explore the whole state space of the heart and pacemaker. </p>
+                            <p> We chose Timed Automata as the formalism for the heart model for several reasons:</p>
+                             <ul class="list-unstyled">
+                             <li>
+                                <p><i class="icon-hand-right color-green"></i>Nondeterminism which enables model abstraction which increase coverage.
+                                </p>
+                                </li>
+                                <li><i class="icon-hand-right color-green"></i>The reachability problem for timed automata is decidable, allowing us to explore the whole state space of the heart and pacemaker. 
+                                </li>
+                                <li><i class="icon-hand-right color-green"></i>Most timing behaviors of the heart can be captured by timed automata
+                                </li>
+                                </ul>
+                     
                                               
                       </div>
                     </div>
@@ -462,7 +473,7 @@
                         <div class="panel-body">
                         <img src="assets/img/main/coverage.png" alt="" width="300" class="pull-right lft-img-margin img-width-300">
                             <p>In order to be used in different stages during the development process, the <strong class="color-green">structure</strong> and <strong class="color-green">parameters</strong> of our heart model need to be adjusted to balance between <strong class="color-green">Coverage vs. Expressiveness</strong>.</p> 
-                            <p>Intuitively, the more complex the model is, there is more constraints on its behavior, thus limiting its coverage. On the other hand, the added complexity allows us to capture more detailed mechanisms of the heart, allowing us to precisely model a specific heart condition. So instead of developing a single heart model, we developed a series of heart models at different abstraction levels. With <strong class="color-green">Counter-Example-Guided Abstraction & Refinement (CEGAR)</strong> framework, we are able to choose the proper level of heart model abstraction during verification thus balancing coverage and expressiveness.</p>
+                            <p>Intuitively, the more complex the model is, there is more constraints on its behaviors, thus limiting its coverage. On the other hand, the added complexity allows us to capture more detailed mechanisms of the heart, allowing us to precisely model a specific heart condition. So instead of developing a single heart model, we developed a series of heart models at different abstraction levels. With <strong class="color-green">Counter-Example-Guided Abstraction & Refinement (CEGAR)</strong> framework, we are able to choose the proper level of heart model abstraction during verification thus balancing coverage and expressiveness.</p>
                                               
                       </div>
                     </div>
@@ -481,10 +492,10 @@
                 <div class="col-sm-9">
                     <div class="tab-content">
                         <div class="tab-pane active" id="home-2">
-                            <h4>Heading Sample 1</h4>
+                            <h4>Behaviorial Model of Heart Tissue</h4>
                             <img src="assets/img/N0.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
-                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum <strong>ivamus imperdiet</strong> condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc.</p> 
-                            <p>Pellentesque <strong>fermentum vivamus</strong> imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac felis consectetur id. Donec eget orci metusvivamus imperdiet.</p>                        
+                            <p>We first start with modeling the electrical behaviors of a heart tissue. A whole model of the heart consists of node automata (N0) which models the timed transitions among different time periods with different behaviors after the tissue is depolarized.  </p> 
+                            <p>The tissue model starts from <em class="color-green">Rest</em> state. After its intrinsic timer runs out or external depolarization happens, the model goes to <em class="color-green">cond </em>state which models the conduction delay between tissues. After the tissue finishes conduction, the model goes to <em class="color-green">ERP</em> state during which no external depolarization is taken into account. After the ERP finishes </p>                        
                         </div>
                         <div class="tab-pane" id="profile-2">
                             <img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">                         
