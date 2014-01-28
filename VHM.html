@@ -27,7 +27,7 @@
 
 <body>
 <!--=== Style Switcher ===-->    
-<i class="style-switcher-btn icon-cogs hidden-xs"></i>
+<!--<i class="style-switcher-btn icon-cogs hidden-xs"></i>
 <div class="style-switcher">
     <div class="theme-close"><i class="icon-remove"></i></div>
     <div class="theme-heading">Theme Colors</div>
@@ -44,7 +44,7 @@
         <a href="#" class="btn-u btn-u-green btn-block active-switcher-btn wide-layout-btn">Wide</a>
         <a href="#" class="btn-u btn-u-green btn-block boxed-layout-btn">Boxed</a>
     </div>
-</div><!--/style-switcher-->
+</div>--><!--/style-switcher-->
 <!--=== End Style Switcher ===-->    
 
 <!--=== Top ===-->    
@@ -203,7 +203,7 @@
                     </li>   
                      </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <a href="faq.html">
                             FAQ
                             <!--<i class="icon-angle-down"></i>-->
                         </a>
@@ -325,6 +325,7 @@
                     </div>
                     <div id="collapseFour" class="panel-collapse collapse">
                         <div class="panel-body">
+                        <img src="assets/img/challenges.png" alt="" width="300" class="pull-right lft-img-margin img-width-300">
                             <ul class="list-unstyled">
                               <li>
                                 <i class="icon-hand-right color-red"></i> <strong>The Pacemaker (and other medical devices):</strong>
@@ -425,55 +426,82 @@
                       </div>
                     </div>
                 </div>
-                 <div class="headline"><h2>Heart & Pacemaker Basics</h2></div>
-                 
+                 <div class="headline"><h2>Heart Basics</h2></div>
+                 <img src="assets/img/basic.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
+                 <p>The coordinated contraction of the heart muscles are governed by the electrical conduction system. The Sinoatrial (SA) node, which is the natual pacemaker, periodically generates electrical impulses that conduct along the electrical conduction system, triggering muscle contractions. Anormalies in the <strong class="color-green">generation</strong> and/or <strong class="color-green">conduction</strong> of the electrical signals will result in irregular heart rhythms, which are referred to as <strong class="color-green">arrthymia</strong>.</p>
+                 <p>When a heart tissue encounters a voltage change, it discharges the ions inside, causing voltage change outside the tissue. The behavior is referred to as <strong class="color-green">depolarization</strong>. The figure on the left illustrates the voltage changes over time (Action Potential) outside a heart tissue (solid line) and its nearby tissue (dashed line). After the outside voltage reaches a certain threshold after some time, the tissue nearby is also depolarized. This domino effect continues so the initial depolarization from the SA node can travel through the whole heart. After the depolarization the tissue needs time to recharge, as we can see the voltage gradually drop back to its resting value. This recharging period is referred to as the <strong class="color-green">Refractory</strong> period during which new depolarization will be inhibited or triggering deformed action potential. The colored bar below shows the corresponding timing periods. More information can be found in this quick tutorial. </p>
                 <div class="headline"><h2>Heart Modeling</h2></div>
-                We chose Timed Automata as the formalism for the heart model since the reachability problem for timed automata is decidable, allowing us to explore the whole state space of the heart and pacemaker. 
+               
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                <strong>Timed automata vs. other formalisms</strong>
+                            </a>
+                        </h4>
+                    </div>
+                    
+                    <div id="collapse4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        
+                            <p> We chose Timed Automata as the formalism for the heart model since the reachability problem for timed automata is decidable, allowing us to explore the whole state space of the heart and pacemaker. </p>
+                                              
+                      </div>
+                    </div>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                <strong>Coverage vs. Expressiveness</strong>
+                                <strong>The proper level of abstraction: Coverage vs. Expressiveness</strong>
                             </a>
                         </h4>
                     </div>
                     
                     <div id="collapse3" class="panel-collapse in">
                         <div class="panel-body">
-                        <img src="assets/img/main/coverage.png" alt="" width="300" class="pull-right lft-img-margin img-width-300"
-                            <p>In order to be used in different stages during the development process, the <strong class="color-green">structure</strong> and <strong class="color-green">parameters</strong> of our heart model need to be adjusted to balance between <strong class="color-green">Coverage vs. Expressiveness</strong>. Intuitively </p>
+                        <img src="assets/img/main/coverage.png" alt="" width="300" class="pull-right lft-img-margin img-width-300">
+                            <p>In order to be used in different stages during the development process, the <strong class="color-green">structure</strong> and <strong class="color-green">parameters</strong> of our heart model need to be adjusted to balance between <strong class="color-green">Coverage vs. Expressiveness</strong>.</p> 
+                            <p>Intuitively, the more complex the model is, there is more constraints on its behavior, thus limiting its coverage. On the other hand, the added complexity allows us to capture more detailed mechanisms of the heart, allowing us to precisely model a specific heart condition. So instead of developing a single heart model, we developed a series of heart models at different abstraction levels. With <strong class="color-green">Counter-Example-Guided Abstraction & Refinement (CEGAR)</strong> framework, we are able to choose the proper level of heart model abstraction during verification thus balancing coverage and expressiveness.</p>
                                               
                       </div>
                     </div>
                 </div>
-                <div class="headline"><h3>Model Abstractions</h3></div>
+                <div class="headline"><h3>Heart Abstractions</h3></div>
  <div class="row tab-v3">
                 <div class="col-sm-3">
                     <ul class="nav nav-pills nav-stacked"> 
-                        <li class="active"><a href="#home-2" data-toggle="tab"><i class="icon-heart"></i>Tissue Model</a></li>
+                        <li class="active"><a href="#home-2" data-toggle="tab"><i class="icon-heart"></i>Heart Abstraction 0</a></li>
                         <li><a href="#profile-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 1</a></li>
                         <li><a href="#messages-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 2</a></li>
-                        <li><a href="#settings-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 3</a></li>                        
+                        <li><a href="#settings-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 3</a></li> 
+                        <li><a href="#settings-3" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 4</a></li>                       
                     </ul>                    
                 </div>
                 <div class="col-sm-9">
                     <div class="tab-content">
                         <div class="tab-pane active" id="home-2">
                             <h4>Heading Sample 1</h4>
+                            <img src="assets/img/N0.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
                             <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum <strong>ivamus imperdiet</strong> condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc.</p> 
                             <p>Pellentesque <strong>fermentum vivamus</strong> imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac felis consectetur id. Donec eget orci metusvivamus imperdiet.</p>                        
                         </div>
                         <div class="tab-pane" id="profile-2">
-                            <img alt="" class="pull-left lft-img-margin img-width-200" src="assets/img/main/5.jpg">                         
+                            <img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">                         
                             <h4>Heading Sample 2</h4>
                             <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
                         </div>
                         <div class="tab-pane" id="messages-2">
                             <h4>Heading Sample 3</h4>
-                            <p><img alt="" class="pull-right rgt-img-margin img-width-200" src="assets/img/main/6.jpg"> <strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                            <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> <strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
                         </div>
                         <div class="tab-pane" id="settings-2">
-                            <img alt="" class="pull-left lft-img-margin img-width-200" src="assets/img/main/7.jpg">                         
+                            <img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">                        
+                            <h4>Heading Sample 4</h4>
+                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
+                        </div>
+                        <div class="tab-pane" id="settings-3">
+                            <img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">                        
                             <h4>Heading Sample 4</h4>
                             <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
                         </div>
@@ -483,8 +511,8 @@
         </div>
         
                
-
-
+<div class="headline"><h3>Heart Model Simulation & Implementation</h3></div>
+<img src="assets/img/HOC.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
                     
                     
                <!--/acc-v1-->
