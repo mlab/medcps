@@ -177,7 +177,7 @@
                             <li><a href="portfolio_item1.html">Portfolio Item Option 2</a></li>
                         </ul>-->
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="awards.html">
                             Awards
                             <!--<i class="icon-angle-down"></i>-->
@@ -193,7 +193,7 @@
                             <li><a href="blog_item_option2.html">Blog Item Option 2</a></li>
                         </ul>-->
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="downloads.html">
                             Downloads
                             
@@ -242,25 +242,50 @@
 
 <!--=== Content Part ===-->
 <div class="container">	
-	<!-- Service Blocks -->
-	<!--/row-->
-	<!-- End Service Blokcs -->
-    <div class="headline"><h2>Awards</h2></div>
-    <ul class="list-unstyled">
-                             <li>
-                                <h4><i class="icon-hand-right color-green"></i>Pacemaker Verification paper (TACAS'12) nominated for best paper award.
-                                </h4>
-                             </li>
-                             <li>
-                                <h4><i class="icon-hand-right color-green"></i>UPP2SF model translation paper (RTAS'12) received best paper award.
-                                </h4>
-                             </li>
-                             <li>
-                                <h4><p><i class="icon-hand-right color-green"></i>Heart On a Chip platform won the 1st Prize(Award of Excellence) of High-tech Medical Service in the World Embedded Software Contest (WESC)</p>
-                                </h4>
-                             </li>
-                                </ul>
-                                <div class="margin-bottom-60"></div>
+  <div class="margin-bottom-60"></div>   
+<p>Thank you for your interest in Penn Virtual Heart Model. VHM is developed in Matlab/Simulink. The <a href="#matlab" class="color-green1">Matlab version</a> is more easy and flexible to work with. The <a href="#simulink" class="color-green1">Simulink version</a> can be translated into Verilog implementation using HDL coder. The parameters for different case studies can be found <a href="#case">here</a>.</p>
+<div class="headline"><h2><a id="matlab" name="matlab"></a>VHM Matlab code</h2></div>
+<hr />
+<p>Current version: v1.0</p>
+<p>Released Date: 04/09/11</p>
+<ul class="list-unstyled">
+<li>
+<h4><i class="icon-hand-right color-green"></i>Whole package</h4>
+</li>
+</ul>
+<p>A simulation environment has been developed in Matlab. User can create, modify and save test cases as well as simulating electrogram signals and deliver programmed pacing at run-time. A tutorial of how to use the simulation environment is coming soon. The whole package including basic code and one case study can be downloaded <a href="assets/downloads/vhm/VHM_Matlab_v1.0.zip" class="color-green1">here</a>.</p>
+
+<ul class="list-unstyled">
+<li>
+<h4><i class="icon-hand-right color-green"></i>Individual files</h4>
+</li>
+</ul>
+<p>User can also use individual files to create their own application.</p>
+<p><a href="assets/downloads/vhm/heart_model.m" class="color-green1">heart_model.m</a>: The main VHM code. Requires <a href="assets/downloads/vhm/node_automatron.m" class="color-green1">node_automaton.m</a> and <a href="assets/downloads/vhm/path_automatron.m" class="color-green1">path_automaton.m</a></p>
+<p><a href="assets/downloads/vhm/functional_sensing.m" class="color-green1">functional_sensing.m</a>: The probe model which generate synthetic Electrogram</p>
+<p><a href="assets/downloads/vhm/pacemaker_new.m" class="color-green1">pacemaker_new.m</a>: The most up-to-date DDD pacemaker model including Mode-Switch and Ventricle Safety Pacing. Need to load <a href="assets/downloads/vhm/pace_param.mat" class="color-green1">pace_param.m</a>.</p>
+<div class="headline"><h2><a id="case" name="case"></a>Case Studies</h2></div>
+<hr />
+<p>The parameters for each case studies are stored as .mat format. It can be loaded into the simulation environment. The file includes parameters for node and path automata as well as probe configurations.  We will keep updating new case studies when they are available.</p>
+<p><a href="assets/downloads/vhm/EP_AVNRT.mat" class="color-green1">04/09/11: Atrioventricular Nodal Reentry Tachycardia (AVNRT)</a></p>
+<p><a href="assets/downloads/vhm/AFlutter.mat" class="color-green1">04/13/11: Atrial Flutter</a></p>
+<p><a href="assets/downloads/vhm/Wenckbach.mat" class="color-green1">04/13/11: Wenckebach-type A-V nodal response</a></p>
+<div class="headline"><h2><a id="simulink" name="simulink"></a>VHM Simulink code</h2>
+</div>
+<p>Current version: V1.0</p>
+<p>Released on 03/23/12</p>
+<p>Since FPGA platform doesn not support division operator, the calculations for conduction velocity and refractory period cannot be directly adapted. We are working on a LUT based solution for this problem. In this version, we present a Simulink implementation of VHM with simplified transitions. A minimum topology has been adapted to be able to simulate NSR, Bradycardia, Bradycardia with A-V block. By deliver PAC and PVC, the VHM can be triggered into Atrial Flutter and ELT. </p>
+<ul>
+<li><a href="assets/downloads/vhm/VHM_Sim_v1.zip" class="color-green1">Simulation package</a></li>
+<ul>
+<li>Minimum Configuration VHM</li>
+<li>Matlab GUI with case switch and PAC/PVC delivery</li>
+<li>Simple Pacemaker model</li>
+</ul>
+</ul>
+<p>The same model can be used for HDL generation. The code generation package will be available in the next version.</p>
+<hr />
+<p>Last updated: 03/23/12</p>
 
     
         <div class="clearfix"></div>
@@ -624,7 +649,30 @@
         Index.initParallaxSlider();
     });
 </script>
-<script>
+<script type="text/javascript">
+      
+      (function() {
+var divs = document.getElementById('ss-form').
+getElementsByTagName('div');
+var numDivs = divs.length;
+for (var j = 0; j < numDivs; j++) {
+if (divs[j].className == 'errorbox-bad') {
+divs[j].lastChild.firstChild.lastChild.focus();
+return;
+}
+}
+for (var i = 0; i < numDivs; i++) {
+var div = divs[i];
+if (div.className == 'ss-form-entry' &&
+div.firstChild &&
+div.firstChild.className == 'ss-q-title') {
+div.lastChild.focus();
+return;
+}
+}
+})();
+      </script>
+      <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
