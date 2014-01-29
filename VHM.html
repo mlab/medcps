@@ -23,6 +23,8 @@
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="assets/css/themes/default.css" id="style_color">
     <link rel="stylesheet" href="assets/css/themes/headers/default.css" id="style_color-header-1">    
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+    
 </head> 
 
 <body>
@@ -140,7 +142,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#">
+                        <a href="publication.html">
                             Publications
                             <!--<i class="icon-angle-down"></i>-->
                         </a>
@@ -176,7 +178,7 @@
                     </li>
                     <li class="dropdown">
                         <a href="#">
-                            Contact us
+                            Awards
                             <!--<i class="icon-angle-down"></i>-->
                         </a>
                         <!--<ul class="dropdown-menu">
@@ -191,15 +193,11 @@
                         </ul>-->
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">
+                        <a href="downloads.html" >
                             Downloads
-                            <i class="icon-angle-down"></i>
+                           
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="page_contact1.html">Contacts Default</a></li>
-                            <li><a href="page_contact2.html">Contacts Option 1</a></li>
-                            <li><a href="page_contact3.html">Contacts Option 2</a></li>
-                        </ul>
+                       
                     </li>   
                      </li>
                     <li class="dropdown">
@@ -337,7 +335,7 @@
 <li>It is the safety of the patient we care about. Therefore the safety of the pacemaker must be evaluated in closed-loop within its environment
 </li>
                                </ul>
-                                <li>
+                              <li>
                                 <i class="icon-hand-right color-red"></i> <strong>The physical plant:</strong>
                                 <ul>
                                 <li> Not only the heart, but also the rest of the body
@@ -350,8 +348,8 @@
 
 </li>
                                </ul>
-                                </li>
-                                </ul>
+                              </li>
+                          </ul>
                         </div>
                     </div>
                 </div>
@@ -379,7 +377,7 @@
                           Currently the device manufacturers use <strong class="color-red">open-loop testing</strong> to evaluate the safety of the device and there is <strong class="color-red">no formal methodologies</strong> during the design process. 
                         </div>
                     </div>
-                </div>
+              </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -435,7 +433,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse4">
                                 <strong>Timed automata vs. other formalisms</strong>
                             </a>
                         </h4>
@@ -449,12 +447,12 @@
                              <li>
                                 <p><i class="icon-hand-right color-green"></i>Nondeterminism which enables model abstraction which increase coverage.
                                 </p>
-                                </li>
+                               </li>
                                 <li><i class="icon-hand-right color-green"></i>The reachability problem for timed automata is decidable, allowing us to explore the whole state space of the heart and pacemaker. 
                                 </li>
                                 <li><i class="icon-hand-right color-green"></i>Most timing behaviors of the heart can be captured by timed automata
                                 </li>
-                                </ul>
+                          </ul>
                      
                                               
                       </div>
@@ -463,7 +461,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse3">
                                 <strong>The proper level of abstraction: Coverage vs. Expressiveness</strong>
                             </a>
                         </h4>
@@ -478,47 +476,50 @@
                       </div>
                     </div>
                 </div>
-                <div class="headline"><h3>Heart Abstractions</h3></div>
- <div class="row tab-v3">
-                <div class="col-sm-3">
-                    <ul class="nav nav-pills nav-stacked"> 
-                        <li class="active"><a href="#home-2" data-toggle="tab"><i class="icon-heart"></i>Heart Abstraction 0</a></li>
-                        <li><a href="#profile-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 1</a></li>
-                        <li><a href="#messages-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 2</a></li>
-                        <li><a href="#settings-2" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 3</a></li> 
-                        <li><a href="#settings-3" data-toggle="tab"><i class="icon-heart"></i> Heart Abstraction 4</a></li>                       
-                    </ul>                    
+                <div class="headline"><h3><a id="abstraction"></a>Heart Abstractions</h3></div>
+                <div class="tab-v1">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#ab0" data-toggle="tab">Abstraction 0</a></li>
+                    <li><a href="#ab1" data-toggle="tab">Abstraction 1</a></li>
+                    <li><a href="#ab2" data-toggle="tab">Abstraction 2</a></li>
+                    <li><a href="#ab3" data-toggle="tab">Abstraction 3</a></li>
+                    <li><a href="#ab4" data-toggle="tab">Abstraction 4</a></li>
+                </ul>                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="ab0">
+                        <div class="row">
+                           
+                            <div class="col-md-12">
+                                <h4>Behaviorial Model of Heart Tissue</h4>
+                              <img src="assets/img/N0.png" alt="" width="435" class="pull-right lft-img-margin img-width-430">
+                            <p>We first start with modeling the electrical behaviors of a heart tissue. A whole model of the heart consists of node automata (N0) which models the timed transitions among different time periods with different behaviors after the tissue is depolarized. The heart can then be modeled as: <img src="assets/img/equations/H0.png"> where N can be arbitarily large.</p>       
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="ab1">
+                                       
+                        <h4>Abstract conduction delay with paths</h4>
+                         <p><img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"><img src="assets/img/equations/H0.5.png"></p>
+                    </div>
+                    <div class="tab-pane" id="ab2">
+                        <h4>Heading Sample 3</h4>
+                        <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"><strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                    </div>
+                    <div class="tab-pane" id="ab3">
+                        <h4>Heading Sample 4</h4>
+                        <p><img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                    </div>
+                    <div class="tab-pane" id="ab4">
+                        <h4>Heading Sample 4</h4>
+                        <p><img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                    </div>
                 </div>
-                <div class="col-sm-9">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="home-2">
-                            <h4>Behaviorial Model of Heart Tissue</h4>
-                            <img src="assets/img/N0.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
-                            <p>We first start with modeling the electrical behaviors of a heart tissue. A whole model of the heart consists of node automata (N0) which models the timed transitions among different time periods with different behaviors after the tissue is depolarized. </p> 
-                            <!--<p>The tissue model starts from <em class="color-green">Rest</em> state. After its intrinsic timer runs out or external depolarization happens, the model goes to <em class="color-green">cond </em>state which models the conduction delay between tissues. After the tissue finishes conduction, the model goes to <em class="color-green">ERP</em> state during which no external depolarization is taken into account. After the ERP finishes the model goes back to Rest state after RRP state.</p>-->                        
-                        </div>
-                        <div class="tab-pane" id="profile-2">
-                            <img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">                         
-                            <h4>Abstrat conduction delays with paths</h4>
-                            <p> </p>
-                        </div>
-                        <div class="tab-pane" id="messages-2">
-                            <h4>Heading Sample 3</h4>
-                            <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> <strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
-                        </div>
-                        <div class="tab-pane" id="settings-2">
-                            <img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">                        
-                            <h4>Heading Sample 4</h4>
-                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
-                        </div>
-                        <div class="tab-pane" id="settings-3">
-                            <img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">                        
-                            <h4>Heading Sample 4</h4>
-                            <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
-                        </div>
-                    </div>                                    
-                </div>
-            </div>            
+            </div>
+            
+
+                                                      
+                
+                       
         </div>
         
                
@@ -616,13 +617,13 @@
         
 		<div class="col-md-3">
         	<!-- Contacts -->
-            <div class="headline"><h2>Contacts</h2></div>
+            <!--<div class="headline"><h2>Contacts</h2></div>
             <ul class="list-unstyled who margin-bottom-30">
                 <li><a href="#"><i class="icon-home"></i>3330 Walnut St. GRW 279, Philadelphia PA US</a></li>
                 <li><a href="#"><i class="icon-envelope-alt"></i>info@example.com</a></li>
                 <li><a href="#"><i class="icon-phone-sign"></i>1(222) 5x86 x97x</a></li>
                 <li><a href="#"><i class="icon-globe"></i>http://mlab.seas.upenn.edu</a></li>
-            </ul>
+            </ul>-->
             <!-- End Contacts -->
 
         	<!-- Business Hours -->
@@ -630,17 +631,17 @@
 <!-- End Business Hours -->
 
         	<!-- Info Block -->
-          <div class="headline"><h2>Why we are?</h2></div>
+          <!--<div class="headline"><h2>Why we are?</h2></div>
             <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
             <ul class="list-unstyled margin-bottom-30">
             	<li><i class="icon-ok color-green"></i> Odio dignissimos ducimus</li>
             	<li><i class="icon-ok color-green"></i> Blanditiis praesentium volup</li>
             	<li><i class="icon-ok color-green"></i> Eos et accusamus</li>
-            </ul>
+            </ul>-->
             <!-- End Info Block -->
 
             <!-- Social -->
-            <div class="magazine-sb-social margin-bottom-20">
+            <!--<div class="magazine-sb-social margin-bottom-20">
                 <div class="headline headline-md"><h2>Social Icons</h2></div>
                 <ul class="social-icons social-icons-color">
                     <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
@@ -650,7 +651,7 @@
                     <li><a href="#" data-original-title="Github" class="social_github"></a></li>
                 </ul>
                 <div class="clearfix"></div>                
-            </div>
+            </div>-->
             <!-- End Social -->
         </div><!--/col-md-3-->            		
     </div><!--/row-->
