@@ -471,14 +471,12 @@
                         <div class="panel-body">
                         <img src="assets/img/main/coverage.png" alt="" width="300" class="pull-right lft-img-margin img-width-300">
                             <p>In order to be used in different stages during the development process, the <strong class="color-green">structure</strong> and <strong class="color-green">parameters</strong> of our heart model need to be adjusted to balance between <strong class="color-green">Coverage vs. Expressiveness</strong>.</p> 
-                            <p>Intuitively, the more complex the model is, there is more constraints on its behaviors, thus limiting its coverage. On the other hand, the added complexity allows us to capture more detailed mechanisms of the heart, allowing us to precisely model a specific heart condition. So instead of developing a single heart model, we developed a series of heart models at different abstraction levels. With <strong class="color-green"><a href="verification.html#CEGAR" target="_self">Counter-Example-Guided Abstraction & Refinement (CEGAR)</a></strong> framework, we are able to choose the proper level of heart model abstraction during verification thus balancing coverage and expressiveness.</p>
+                            <p>Intuitively, the more complex the model is, there is more constraints on its behaviors, thus limiting its coverage. On the other hand, the added complexity allows us to capture more detailed mechanisms of the heart, allowing us to precisely model a specific heart condition. So instead of developing a single heart model, we developed a series of heart models at different abstraction levels. With <strong class="color-green">Counter-Example-Guided Abstraction & Refinement (CEGAR)</strong> framework, we are able to choose the proper level of heart model abstraction during verification thus balancing coverage and expressiveness.</p>
                                               
                       </div>
                     </div>
                 </div>
                 <div class="headline"><h3><a id="abstraction"></a>Heart Abstractions</h3></div>
-                <p>For evaluating pacemaker which has only two leads and do simple thresholding for signal processing, we developed heart models at different abstraction levels, where each abstraction covers all possible states of the model in the previous abstraction level. Each abstraction step reduces <strong class="color-green">the complexity of the timed automata component</strong> and/or <strong class="color-green">the structure of the whole model</strong>. This establishes a <strong class="color-green">timed simulation</strong> relationship between abstraction levels with <img src="assets/img/equations/simulation.png"> where n=[1,4]. </p>
-              <p>&nbsp;</p>
                 <div class="tab-v1">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#ab0" data-toggle="tab">Abstraction 0</a></li>
@@ -499,21 +497,21 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="ab1">
-                             <img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">          
-                      <h4>Abstract conduction delay with paths</h4>
-                         <p>In this abstraction we replace the <em>cond</em> state of N0 with path automata. The heart model H0 can be replaced by <img src="assets/img/equations/H0.5.png">. A more general abstraction abstracts 3 nodes and 2 paths into 2 nodes and 1 path:<img src="assets/img/equations/3to2.png">. With this property we can further abstract the structure of the model. The heart model H0.5 can be further abstracted into <img src="assets/img/equations/H1.png"> where m=9 in the structure shown on the right.</p>
+                                       
+                        <h4>Abstract conduction delay with paths</h4>
+                         <p><img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"><img src="assets/img/equations/H0.5.png"></p>
                     </div>
                     <div class="tab-pane" id="ab2">
-                        <h4>Merging equivalent states</h4>
-                        <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">At this abstraction level, we merge the <em>RRP</em> state with the <em>Rest</em> state in the node automata and <em>Double</em> with the <em>Idle</em> state in the path automata due to the same behavior. We also further abstract the structure of the heart model so H1 can be abstracted with <img src="assets/img/equations/H2.png">. The AV node has very large ERP period thus cannot be abstracted away.</p>
+                        <h4>Heading Sample 3</h4>
+                        <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"><strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
                     </div>
                     <div class="tab-pane" id="ab3">
-                        <h4>Replacing the blocking property of ERP with non-determinism</h4>
-                        <p><img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> The node automata do not trigger path conduction in response to external activation during its ERP state. In this abstraction level, this function is replaced by a non-determnistic transition in the path automata, as shown in the figure on the right. As a result of the abstraction, the AV node can be abstracted away and the heart model H2 can be abstracted by <img src="assets/img/equations/H3.png">.</p>
+                        <h4>Heading Sample 4</h4>
+                        <p><img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
                     </div>
                     <div class="tab-pane" id="ab4">
-                        <h4>Abstracting the conduction property with non-determinism</h4>
-                        <p><img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Since the pacemaker only has two leads, the structure of the heart model can be further reduced to two node automata which can generate inputs to the pacemaker without timing constraints. The heart model H3 can be further abstracted to <img src="assets/img/equations/H4.png">. This heart model covers all possible inputs to the pacemaker and is our most abstracted model. </p>
+                        <h4>Heading Sample 4</h4>
+                        <p><img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
                     </div>
                 </div>
             </div>
@@ -525,34 +523,7 @@
         </div>
         
                
-<div class="headline"><h3>Heart Model Simulation & Implementation</h3></div><div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse5">
-                                <strong>Interfacing with pacemaker</strong>
-                            </a>
-                        </h4>
-                    </div>
-                    
-                    <div id="collapse5" class="panel-collapse collapse">
-                        <div class="panel-body">
-                        <p><img src="assets/img/egm.gif" alt="" width="300" class="pull-right lft-img-margin img-width-300">
-                            <p> Pacemaker has two leads placed against the inner heart wall. Each lead has two electodes which can sense the electrical voltage changes near the heart tissue. </p>
-                             <ul class="list-unstyled">
-                             <li>
-                                <p><i class="icon-hand-right color-green"></i>Nondeterminism which enables model abstraction which increase coverage.
-                                </p>
-                               </li>
-                                <li><i class="icon-hand-right color-green"></i>The reachability problem for timed automata is decidable, allowing us to explore the whole state space of the heart and pacemaker. 
-                                </li>
-                                <li><i class="icon-hand-right color-green"></i>Most timing behaviors of the heart can be captured by timed automata
-                                </li>
-                          </ul>
-                     
-                                              
-                      </div>
-                    </div>
-                </div>
+<div class="headline"><h3>Heart Model Simulation & Implementation</h3></div>
 <img src="assets/img/HOC.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
                     
                     
