@@ -464,7 +464,8 @@
                     </div>
                 </div>-->
                 <div class="headline"><h3><a id="abstraction"></a>Heart Abstractions</h3></div>
-                <div class="tab-v1">
+                <p>For evaluating pacemaker which has only two leads and do simple thresholding for signal processing, we developed heart models at different abstraction levels, where each abstraction covers all possible states of the model in the previous abstraction level. Each abstraction step reduces <strong class="color-green">the complexity of the timed automata component</strong> and/or <strong class="color-green">the structure of the whole model</strong>. This establishes a <strong class="color-green">timed simulation</strong> relationship between abstraction levels with <img src="assets/img/equations/simulation.png"> where n=[1,4]. More details on heart model abstraction can be found in our <strong class="color-green1"><a href="http://repository.upenn.edu/mlab_papers/58/" target="_blank">STTT paper</a></strong>. </p>
+               <div class="tab-v1">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#ab0" data-toggle="tab">Abstraction 0</a></li>
                     <li><a href="#ab1" data-toggle="tab">Abstraction 1</a></li>
@@ -479,26 +480,76 @@
                             <div class="col-md-12">
                                 <h4>Behaviorial Model of Heart Tissue</h4>
                               <img src="assets/img/N0.png" alt="" width="435" class="pull-right lft-img-margin img-width-430">
-                            <p>We first start with modeling the electrical behaviors of a heart tissue. A whole model of the heart consists of node automata (N0) which models the timed transitions among different time periods with different behaviors after the tissue is depolarized. The heart can then be modeled as: <img src="assets/img/equations/H0.png"> where N can be arbitarily large.</p>       
+                            <p>We first start with modeling the electrical behaviors of a heart tissue. A whole model of the heart consists of node automata (N0) which models the timed transitions among different time periods with different behaviors after the tissue is depolarized. The heart can then be modeled as: <img src="assets/img/equations/H0.png"> where N can be arbitarily large.</p><p><strong class="color-green">Proposed use:</strong><p> 
+                            <ul class="list-unstyled">
+                             <li>
+                                <i class="icon-hand-right color-green"></i>Study complex and chaotic heart conditions like Atrial Fibrillation.</li>
+                                <li>
+                                <i class="icon-hand-right color-green"></i>Creating spatial and temporal map of the heart during Electrophysiology Studies
+                                </li>
+                              </ul>
+                                <p> </p>
+                                </p>       
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="ab1">
-                                       
-                        <h4>Abstract conduction delay with paths</h4>
-                         <p><img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"><img src="assets/img/equations/H0.5.png"></p>
+                             <img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">          
+                      <h4>Abstract conduction delay with paths</h4>
+                         <p>In this abstraction we replace the <em>cond</em> state of N0 with path automata. The heart model H0 can be replaced by <img src="assets/img/equations/H0.5.png">. A more general abstraction abstracts 3 nodes and 2 paths into 2 nodes and 1 path:<img src="assets/img/equations/3to2.png">. With this property we can further abstract the structure of the model. The heart model H0.5 can be further abstracted into <img src="assets/img/equations/H1.png"> where m=9 in the structure shown on the right.<p><strong class="color-green">Proposed use:</strong><p> 
+                            <ul class="list-unstyled"> 
+                            <li>
+                                <i class="icon-hand-right color-green"></i>Study heart conditions with additional pathways including reentry circuits.
+                              </li>
+                             <li>
+                                <i class="icon-hand-right color-green"></i>Patient-specific heart model for general Electrophysiology Study.</li>
+                               
+                      </ul>
+                                
+                                </p>     </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
                     </div>
                     <div class="tab-pane" id="ab2">
-                        <h4>Heading Sample 3</h4>
-                        <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"><strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                        <h4>Merging equivalent states</h4>
+                        <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">At this abstraction level, we merge the <em>RRP</em> state with the <em>Rest</em> state in the node automata and <em>Double</em> with the <em>Idle</em> state in the path automata due to the same behavior. We also further abstract the structure of the heart model so H1 can be abstracted with <img src="assets/img/equations/H2.png">. The AV node has very large ERP period thus cannot be abstracted away.<p><strong class="color-green">Proposed use:</strong><p> 
+                            
+                                <i class="icon-hand-right color-green"></i>Verify pacemaker algorithms in which the blocking property of the AV node cannot be ignored
+                                
+                                </p>     </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
                     </div>
                     <div class="tab-pane" id="ab3">
-                        <h4>Heading Sample 4</h4>
-                        <p><img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                        <h4>Replacing the blocking property of ERP with non-determinism</h4>
+                        <p><img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> The node automata do not trigger path conduction in response to external activation during its ERP state. In this abstraction level, this function is replaced by a non-determnistic transition in the path automata, as shown in the figure on the right. As a result of the abstraction, the AV node can be abstracted away and the heart model H2 can be abstracted by <img src="assets/img/equations/H3.png">.<p><strong class="color-green">Proposed use:</strong><p> 
+                            
+                                <i class="icon-hand-right color-green"></i>Verify pacemaker algorithms in which A-V conduction cannot be ignored
+                                
+                                </p>     </p></p>
                     </div>
                     <div class="tab-pane" id="ab4">
-                        <h4>Heading Sample 4</h4>
-                        <p><img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                        <h4>Abstracting the conduction property with non-determinism</h4>
+                        <p><img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Since the pacemaker only has two leads, the structure of the heart model can be further reduced to two node automata which can generate inputs to the pacemaker without timing constraints. The heart model H3 can be further abstracted to <img src="assets/img/equations/H4.png">. This heart model covers all possible inputs to the pacemaker and is our most abstracted model. </p><p><strong class="color-green">Proposed use:</strong><p> 
+                            
+                                <i class="icon-hand-right color-green"></i>Verify pacemaker algorithms with unconditional properties.
+                                
+                                </p>     </p></p>
                     </div>
                 </div>
             </div>
@@ -510,9 +561,9 @@
         </div>
         
                
-<div class="headline"><h3>Basic Safety Properties</h3></div>
-<p>For model checking, we start from basic safety properties which should be satisfied by the pacemaker under all possible heart conditions. In this section, the most abstract heart model H4 which covers all possible heart inputs to the pacemaker, is the most suitable heart model to use.</p>
-<div class="panel-group acc-v1 margin-bottom-40" id="accordion">
+
+
+<div class="panel-group acc-v1 margin-bottom-40" id="accordion"><div class="headline"><h2>Basic Safety Properties</h2></div><p>For model checking, we start from basic safety properties which should be satisfied by the pacemaker under all possible heart conditions. In this section, the most abstract heart model H4 which covers all possible heart inputs to the pacemaker, is the most suitable heart model to use.</p>
  <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
