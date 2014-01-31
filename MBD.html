@@ -4,7 +4,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Heart Modeling - Medical CPS</title>
+    <title>Model-based Design - Medical CPS</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -235,7 +235,7 @@
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
-        <h1 class="pull-left">Heart Modeling for Closed-loop Pacemaker Verification & Validation</h1>
+        <h1 class="pull-left">Model-based Design Framework for Pacemaker Software</h1>
         <!--<ul class="pull-right breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="">Pages</a></li>
@@ -382,14 +382,14 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                <strong>The problem of open-loop testing</strong>
+                                <strong>The problem of traditional software development</strong>
                             </a>
                         </h4>
                         
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <img src="assets/img/main/open-loop.png" alt="" width="300" class="pull-right lft-img-margin img-width-100">
+                            <img src="assets/img/development.png" alt="" width="250" class="pull-right lft-img-margin img-width-250">
                                                        
                             <p>During the past decades, pacemakers implanted into patients have recorded episodes of closed-loop interactions (Senario 1 ~ Senario N) between the heart in different conditions (Heart 1 ~ Heart N) and the pacemaker . The recordings are either appropriate pacemaker behavior in response to heart condition which all new pacemakers should also have, or inappropriate pacemaker behavior so that the new pacemakers should avoid. In order to evaluate the performance of a new pacemaker design (Pacemaker X), the inputs from the hearts in those recordings, representing different heart conditions, are fed into the new pacemaker and the outputs of the new pacemaker are compared to the recorded outputs in those senarios. </p>
                             
@@ -404,13 +404,13 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                <strong>Closing the loop with a model of the heart</strong>
+                                <strong>Maintain Traceability of requirements</strong>
                             </a>
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
-                        <img src="assets/img/main/MBD_heart.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
+                        <img src="assets/img/upp2sf.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
                             <p>We developed a model-based design framework for pacemaker software. A heart model structure was designed based on the electrophysiology of the heart. At each development stage a version of the heart model is available to interact with the pacemaker model/implementation.</p>
                                               <ul class="list-unstyled">
                                 <li><i class="icon-ok color-green"></i> At verification level we have a set of <strong class="color-green">non-deterministic</strong> version of our heart models with different abstraction level which covers all possible inputs to the pacemaker under different heart conditions. Depending on the condition of the safety/efficacy properties, we choose heart model with appropirate structure and abstraction level to cover the inputs to the pacemaker under heart conditions specified in the properties. </li>
@@ -424,10 +424,7 @@
                       </div>
                     </div>
                 </div>
-                 <div class="headline"><h2>Heart Basics</h2></div>
-                 <img src="assets/img/basic.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
-                 <p>The coordinated contraction of the heart muscles are governed by the electrical conduction system. The Sinoatrial (SA) node, which is the natual pacemaker, periodically generates electrical impulses that conduct along the electrical conduction system, triggering muscle contractions. Anormalies in the <strong class="color-green">generation</strong> and/or <strong class="color-green">conduction</strong> of the electrical signals will result in irregular heart rhythms, which are referred to as <strong class="color-green">arrthymia</strong>.</p>
-                 <p>When a heart tissue encounters a voltage change, it discharges the ions inside, causing voltage change outside the tissue. The behavior is referred to as <strong class="color-green">depolarization</strong>. The figure on the left illustrates the voltage changes over time (Action Potential) outside a heart tissue (solid line) and its nearby tissue (dashed line). After the outside voltage reaches a certain threshold after some time, the tissue nearby is also depolarized. This domino effect continues so the initial depolarization from the SA node can travel through the whole heart. After the depolarization the tissue needs time to recharge, as we can see the voltage gradually drop back to its resting value. This recharging period is referred to as the <strong class="color-green">Refractory</strong> period during which new depolarization will be inhibited or triggering deformed action potential. The colored bar below shows the corresponding timing periods. More information can be found in this quick tutorial. </p>
+                 
                 <div class="headline"><h2>Heart Modeling</h2></div>
                
                 <div class="panel panel-default">

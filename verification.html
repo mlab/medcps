@@ -4,7 +4,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Heart Modeling - Medical CPS</title>
+    <title>Pacemaker Verification - Medical CPS</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -235,7 +235,7 @@
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
-        <h1 class="pull-left">Heart Modeling for Closed-loop Pacemaker Verification & Validation</h1>
+        <h1 class="pull-left">Closed-loop Verification of Pacemaker Software</h1>
         <!--<ul class="pull-right breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="">Pages</a></li>
@@ -295,7 +295,7 @@
                                 <strong>Motivation</strong></a>
                         </h3>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
+                    <div id="collapseOne" class="panel-collapse collapse collapse">
                         <div class="panel-body">
                             <img src="assets/img/main/pacemaker.png" alt="" width="100" class="pull-right lft-img-margin img-width-100">
                             <ul class="list-unstyled">
@@ -378,96 +378,83 @@
                         </div>
                     </div>
               </div>
+              <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                <strong>Problem with traditional software development</strong>
+                            </a>
+                        </h4>
+                    </div>
+                <div id="collapseThree" class="panel-collapse in">
+                        <div class="panel-body">
+                        <img src="assets/img/development.png" alt="" width="250" class="pull-right lft-img-margin img-width-250">
+                            <p>In traditionally software development, the domain experts first specify safety/efficacy requirements for the software. Together with a software engineer they agree on the software specification which is designed to address the requirements. Then together with an electrical engineer the specification is implemented on hardware. From the process we can see that <strong class="color-green">the requirements, the specification</strong> and <strong class="color-green">the implementation</strong> are 3 isolated documents and there is no formal proof to claim that the final implementation satisfies all the requirements. This is definitely a problem during FDA certification.</p>    
+                      </div>
+                    </div>
+              </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                <strong>The problem of open-loop testing</strong>
+                                <strong>Ensure safety/efficacy requirements at model level</strong>
                             </a>
                         </h4>
                         
                     </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
+                    
+                  <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <img src="assets/img/main/open-loop.png" alt="" width="300" class="pull-right lft-img-margin img-width-100">
+                            <img src="assets/img/MBD.png" alt="" width="450" class="pull-right lft-img-margin img-width-450">
                                                        
-                            <p>During the past decades, pacemakers implanted into patients have recorded episodes of closed-loop interactions (Senario 1 ~ Senario N) between the heart in different conditions (Heart 1 ~ Heart N) and the pacemaker . The recordings are either appropriate pacemaker behavior in response to heart condition which all new pacemakers should also have, or inappropriate pacemaker behavior so that the new pacemakers should avoid. In order to evaluate the performance of a new pacemaker design (Pacemaker X), the inputs from the hearts in those recordings, representing different heart conditions, are fed into the new pacemaker and the outputs of the new pacemaker are compared to the recorded outputs in those senarios. </p>
+                            <p>We developed a model based design framework which ensures the safety and efficacy of the pacemaker software. The software specification of the pacemaker software is first represented by a model. Together with the heart model we developed, the closed-loop system can be verified against safety/efficacy properties using <strong class="color-green">Model Checking</strong> This process ensures that the specification is able to satisfy the requirements</p>
                             
-                            <p><strong class="color-red">The problem of open-loop testing</strong> is that the input signals from heart do not capture the heart physiology and will not change to different pacemaker outputs. Given a closed-loop interaction between Heart i and Pacemaker i and feed its heart input signals to Pacemaker X will not capture the closed-loop behavior of Pacemaker X under heart condition i. In order to evaluate pacemaker executions under different heart conditions, especially the executions with adquate depth, there has to be a model of the heart which can capture the physiological conditions of the heart and respond to pacemaker outputs.</p>
+                           
                             
-                      </div>
+                    </div>
                     </div>
                 </div>
 
                 
-                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                <strong>Closing the loop with a model of the heart</strong>
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
-                        <img src="assets/img/main/MBD_heart.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
-                            <p>We developed a model-based design framework for pacemaker software. A heart model structure was designed based on the electrophysiology of the heart. At each development stage a version of the heart model is available to interact with the pacemaker model/implementation.</p>
-                                              <ul class="list-unstyled">
-                                <li><i class="icon-ok color-green"></i> At verification level we have a set of <strong class="color-green">non-deterministic</strong> version of our heart models with different abstraction level which covers all possible inputs to the pacemaker under different heart conditions. Depending on the condition of the safety/efficacy properties, we choose heart model with appropirate structure and abstraction level to cover the inputs to the pacemaker under heart conditions specified in the properties. </li>
-                                <li><i class="icon-ok color-green"></i>
-                                At Simulation level the non-determinism of our heart model are resolved by linear interpolation of the parameter ranges. The <strong class="color-green">deterministic</strong> version of our heart model responds to pacemaker pacing signals the same way as a real heart. 
-                                </li>
-                                <li><i class="icon-ok color-green"></i>
-                                The deterministic heart model can be translated into HDL code by Mathworks HDL coder and implemented on a FPGA chip. With appropriate analog interface, the platform can be used for closed-loop testing of pacemaker implementations.
-                                </li>
-                                </ul>      
-                      </div>
-                    </div>
-                </div>
-                 <div class="headline"><h2>Heart Basics</h2></div>
-                 <img src="assets/img/basic.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
-                 <p>The coordinated contraction of the heart muscles are governed by the electrical conduction system. The Sinoatrial (SA) node, which is the natual pacemaker, periodically generates electrical impulses that conduct along the electrical conduction system, triggering muscle contractions. Anormalies in the <strong class="color-green">generation</strong> and/or <strong class="color-green">conduction</strong> of the electrical signals will result in irregular heart rhythms, which are referred to as <strong class="color-green">arrthymia</strong>.</p>
-                 <p>When a heart tissue encounters a voltage change, it discharges the ions inside, causing voltage change outside the tissue. The behavior is referred to as <strong class="color-green">depolarization</strong>. The figure on the left illustrates the voltage changes over time (Action Potential) outside a heart tissue (solid line) and its nearby tissue (dashed line). After the outside voltage reaches a certain threshold after some time, the tissue nearby is also depolarized. This domino effect continues so the initial depolarization from the SA node can travel through the whole heart. After the depolarization the tissue needs time to recharge, as we can see the voltage gradually drop back to its resting value. This recharging period is referred to as the <strong class="color-green">Refractory</strong> period during which new depolarization will be inhibited or triggering deformed action potential. The colored bar below shows the corresponding timing periods. More information can be found in this quick tutorial. </p>
-                <div class="headline"><h2>Heart Modeling</h2></div>
+                 
+                 
+<div class="headline">
+  <h2>Pacemaker Modeling</h2></div>
                
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse4">
-                                <strong>Timed automata vs. other formalisms</strong>
+                                <strong>Modeling Basic Pacemaker Timing Cycles</strong>
                             </a>
                         </h4>
                     </div>
                     
                     <div id="collapse4" class="panel-collapse collapse">
                         <div class="panel-body">
-                        
-                            <p> We chose Timed Automata as the formalism for the heart model for several reasons:</p>
-                             <ul class="list-unstyled">
+                        <p>A dual chamber pacemaker has 5 basic timing cycles which do the following things</p>
+                        <ul class="list-unstyled">
                              <li>
-                                <p><i class="icon-hand-right color-green"></i>Nondeterminism which enables model abstraction which increase coverage.
+                                <p><i class="icon-hand-right color-green"></i>Maintain lowest ventricular rate and highest paced ventricular rate to keep adquate and efficient blood supply.
                                 </p>
                                </li>
-                                <li><i class="icon-hand-right color-green"></i>The reachability problem for timed automata is decidable, allowing us to explore the whole state space of the heart and pacemaker. 
+                                <li><i class="icon-hand-right color-green"></i>Maintain appropriate A-V interval to ensure optimal stroke volume.
                                 </li>
-                                <li><i class="icon-hand-right color-green"></i>Most timing behaviors of the heart can be captured by timed automata
+                                <li><i class="icon-hand-right color-green"></i>Filter physiologically-infeasible signals as noises which may disrupt normal pacemaker functions. 
                                 </li>
                           </ul>
-                     
+                          <p>An example of the 5 timers are shown below:</p>
+                        <img src="assets/img/PM_timers.png" alt="" width="400" class="img-width-400">
+                            <p> In model checker UPPAAL, we modeled each timing cycle as a component and they communicate with broadcast channels. The UPPAAL model of the 5 timing cycles are shown below:</p>
+                             
+                      <img src="assets/img/pacemaker.png" alt="" width="500" class="img-width-500">
                                               
                       </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse3">
-                                <strong>The proper level of abstraction: Coverage vs. Expressiveness</strong>
-                            </a>
-                        </h4>
-                    </div>
+               
                     
-                    <div id="collapse3" class="panel-collapse in">
+                    <!--<div id="collapse3" class="panel-collapse in">
                         <div class="panel-body">
                         <img src="assets/img/main/coverage.png" alt="" width="300" class="pull-right lft-img-margin img-width-300">
                             <p>In order to be used in different stages during the development process, the <strong class="color-green">structure</strong> and <strong class="color-green">parameters</strong> of our heart model need to be adjusted to balance between <strong class="color-green">Coverage vs. Expressiveness</strong>.</p> 
@@ -475,7 +462,7 @@
                                               
                       </div>
                     </div>
-                </div>
+                </div>-->
                 <div class="headline"><h3><a id="abstraction"></a>Heart Abstractions</h3></div>
                 <div class="tab-v1">
                 <ul class="nav nav-tabs">
@@ -523,9 +510,105 @@
         </div>
         
                
-<div class="headline"><h3>Heart Model Simulation & Implementation</h3></div>
-<img src="assets/img/HOC.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">
+<div class="headline"><h3>Basic Safety Properties</h3></div>
+<p>For model checking, we start from basic safety properties which should be satisfied by the pacemaker under all possible heart conditions. In this section, the most abstract heart model H4 which covers all possible heart inputs to the pacemaker, is the most suitable heart model to use.</p>
+<div class="panel-group acc-v1 margin-bottom-40" id="accordion">
+ <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse9">
+                                <strong>Avoiding Unsafe States</strong>
+                            </a>
+                        </h4>
+                    </div>
                     
+                    <div id="collapse9" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
+                        <img src="assets/img/monitor.png" alt="" width="450">
+                        <p>The property for the Lower Rate Limit is          <img src="assets/img/equations/LRI.png"> and the property for the Upper Rate Limit is <img src="assets/img/equations/URI.png">. Our verification results shows that the basic dual chamber pacemaker with 5 timing cycles satisfies both properties: <img src="assets/img/equations/LRI_sat.png"> and <img src="assets/img/equations/URI_sat.png">            </p>    
+                      </div>
+                    </div>
+                    </div>
+                    
+                    </div>
+<div class="headline"><h3>Safety Properties Regarding Unsafe Executions</h3></div>
+<p>Most of the time the unsafe behavior of the pacemaker cannot be identified as a single state, but as closed-loop executions over a period of time. In this section, we use 2 already idendified and studied unsafe executions: <strong class="color-red">Endless loop Tachycardia (ELT)</strong>, and <strong class="color-red">Atrial Tachycardia Response (ATR)</strong>, as case studied to show:</p>
+<ul class="list-unstyled">
+                             <li>
+                                <i class="icon-hand-right color-green"></i>How they can be identified using model checking.
+							</li>
+                            <li>
+                                <i class="icon-hand-right color-green"></i>How to verify the correctness of corresponding termination algorithms.
+							</li>
+                            <li>
+                                <i class="icon-hand-right color-green"></i>Most importantly, how to refine the heart model when the model does not have the expressiveness to distinguish the unsafe behavior from the rest.
+							</li>
+                            </ul>
+
+ 
+                   <div class="panel-group acc-v1 margin-bottom-40" id="accordion">
+ <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse11">
+                                <strong>Endless Loop Tachycardia (ELT)</strong>
+                            </a>
+                        </h4>
+                    </div>
+                    
+                    <div id="collapse11" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
+                        <img src="assets/img/ELT_open.jpg" alt="" width="450">
+                        <p>The property for the Lower Rate Limit is          <img src="assets/img/equations/LRI.png"> and the property for the Upper Rate Limit is <img src="assets/img/equations/URI.png">. Our verification results shows that the basic dual chamber pacemaker with 5 timing cycles satisfies both properties: <img src="assets/img/equations/LRI_sat.png"> and <img src="assets/img/equations/URI_sat.png">            </p>    
+                        <img src="assets/img/ELT.jpg" alt="" width="450">
+                      </div>
+                    </div>
+                    </div>
+                    
+                    <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse12">
+                                <strong>ELT Identification and Heart Refinement 1</strong>
+                            </a>
+                        </h4>
+                    </div>
+                    
+                    <div id="collapse12" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
+                        <img src="assets/img/ELT_open.jpg" alt="" width="450">
+                        <p>The property for the Lower Rate Limit is          <img src="assets/img/equations/LRI.png"> and the property for the Upper Rate Limit is <img src="assets/img/equations/URI.png">. Our verification results shows that the basic dual chamber pacemaker with 5 timing cycles satisfies both properties: <img src="assets/img/equations/LRI_sat.png"> and <img src="assets/img/equations/URI_sat.png">            </p>    
+                        <img src="assets/img/ELT.jpg" alt="" width="450">
+                      </div>
+                    </div>
+                    </div>
+                    
+                    <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#test" href="#collapse10">
+                                <strong>Atrial Tachycardia Response (ATR)</strong>
+                            </a>
+                        </h4>
+                    </div>
+                    
+                    <div id="collapse10" class="panel-collapse collapse">
+                        <div class="panel-body">
+                        <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
+                        <img src="assets/img/MS_none.png" alt="" width="550">
+                        <p>The property for the Lower Rate Limit is          <img src="assets/img/equations/LRI.png"> and the property for the Upper Rate Limit is <img src="assets/img/equations/URI.png">. Our verification results shows that the basic dual chamber pacemaker with 5 timing cycles satisfies both properties: <img src="assets/img/equations/LRI_sat.png"> and <img src="assets/img/equations/URI_sat.png">            </p>    
+                        <img src="assets/img/MS_DDD.png" alt="" width="550">
+                        <img src="assets/img/MS_MS.png" alt="" width="550">
+
+                      </div>
+                    </div>
+                    </div>
+                    
+                    
+                    </div> 
                     
                <!--/acc-v1-->
             <!-- End General Questions -->
