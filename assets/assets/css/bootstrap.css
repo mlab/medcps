@@ -5774,3 +5774,6 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+.f {
+	font-size: 50px;
+}
