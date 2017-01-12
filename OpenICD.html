@@ -294,21 +294,35 @@
             <p>We have implemented the VT/SVT discrimination algorithm from two major ICD manufacturers, and by sharing them we hope to encourage researchers to develop better VT/SVT algorithms.            In each algorithm description, we start by introducing the clinical features that the algorithm looks for and why, and then go into the implementation details. In the end, we will provide the link to the Matlab implementation.</p>
             <div class="headline">
               <h2>Boston Scientific RhythmID            </h2>
-              <p>RhythmID is very straightfoward and works pretty well</p>
+              <p>RhythmID is a very straightfoward algorithm and has been working very well in most heart conditions.</p>
             </div>
             <h4>Clinical Features</h4>
+            <p>The readers should keep in mind that none of these features can 100% distinguish VT/SVT on its own.</p>
             <h5>1. Ventricular rate</h5>
             <p>High ventricular rate is a strong indication of VT. The RhythmID algorithm use the last 10 intervals between consecutive ventricular beats to determine whether the current rhythm is SVT, VT, or even faster VF. Depending on the setting, ventricular rate can be divided into 2 zones (VT/VF) or 3 zones (VT/fast VT/VF). In this study we only consider 2 zones. If the ventricular rate is above the VF threshold, the ICD will deliver therapy immediately without checking whether the ryhthm is SVT, otherwise the algorithm looks for other signs of SVT to potentially inhibit therapy.</p>
             <h5>2. Fast Ventricular Rate Duration</h5>
-            <p>There are cases called non-sustained VT, in which the ventricular rate is only fast for less than say, 30 sec. ICD should not deliver therapy in this scenario. Therefore in VT/SVT algorithms there are always a timing period in which the ventricular rate has to stay fast before the algorithm decide whether to deliver therapy. In Rhythm ID this period is called VT and VF Duration, respectively.</p>
+            <p>There are cases called non-sustained VT, in which the ventricular rate is only fast for less than say, 30 sec. ICD should not deliver therapy in these scenarios. Therefore in VT/SVT algorithms there are always a timing period in which the ventricular rate has to stay fast before the algorithm decide whether to deliver therapy. In Rhythm ID this period is called VT and VF Duration, respectively.</p>
             <h5>3. Ventricular Rate Stability</h5>
-            <p>&nbsp;</p>
+            <p>During most VTs, the intervals between consecutive ventricular contractions remain mostly constant since the fast beats are generated from the same reentry circuit. On the contrary, during SVTs like AF, the AV node prevents certain fast atrial events from entering the ventricles, resulting unstable ventricular rate. Therefore, unstable ventricular rate is an important sign of SVT.</p>
             <h5>4. Atrial Rate</h5>
-            <p>A fast atrial rate</p>
+            <p>During SVT, the atrial rate is fast. However, the atrial rate is also fast in some VTs, like double tachycardia. Therefore fast atrial rate is an important sign of SVT but other factors have to be taken into account to confirm SVT.</p>
             <h5>5. Far-field Ventricular EGM Morphology</h5>
-            <p>&nbsp;</p>
+            <p>Far-field ventricular EGM is measured from the ring of the shock coil on the ventricular lead to the ICD can. Due to the relatively longer distance betwen 2 electrodes, far-field ventricular EGM contains information of the direction of the electrical conductions within the heart, which is similar to the ECG signals. During NSR and SVT, electrical signals originate from above the ventricles, and travel to the ventricles through the AV node-His-Pukinje pathway. Therefore, the far-field ventricular EGM morphology during NSR and SVT are very similar. On the other hand, during VT the signals originate from the ventricles, resulting in different conduction pattern and different far-field ventricular EGM morphology. RhythmID utilize this feature to distinguish VT/SVT. The readers should know that there are rare cases in which the far-field EGM morphology during SVT is different than the ones during NSR, and also cases in which the morphology during VT is similar to the ones during NSR. </p>
             <h4>Algorithm Descriptions</h4>
+          <p>RhythmID utilize a combination of the features described above. The decision flow to determine whether a rhythm is VT or SVT is shown below:</p>
             <p><img src="assets/img/BS_det.png" width="624" height="526"  alt=""/></p>
+            <p>The Matlab function for RhythmID can be downloaded here. Now we walk through the code for better understanding.</p>
+            <h6>Input</h6>
+            <p>A_in: Boolean, sensed atrial event after sensing</p>
+            <p>V_in: Boolean, sensed ventricular event after sensing</p>
+            <h6>ICD States</h6>
+            <p>A_clk: The time (in msec) since the last atrial event, resets when A_in=1</p>
+          <p>V_clk: The time (in msec) since the last ventricular event, resets when V_in=1</p>
+            <p>A_win: The last 10 intervals between consequtive atrial events. Updated for every new atrial events as FIFO.</p>
+            <p>V_win: The last 10 intervals between consequtive ventricular events. Updated for every new ventricular events as FIFO.</p>
+            <p>VTC_win: The type of the last 10 far-field ventricular morphology. 1 for NSR and 2 for non-NSR.</p>
+            <p>VT_dur:</p>
+            <p>VT_dur:</p>
           
 
 <!--/acc-v1-->
