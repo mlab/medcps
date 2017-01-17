@@ -312,17 +312,30 @@
           <p>RhythmID utilize a combination of the features described above. The decision flow to determine whether a rhythm is VT or SVT is shown below:</p>
             <p><img src="assets/img/BS_det.png" width="624" height="526"  alt=""/></p>
             <p>The Matlab function for RhythmID can be downloaded here. Now we walk through the code for better understanding.</p>
-            <h6>Input</h6>
-            <p>A_in: Boolean, sensed atrial event after sensing</p>
-            <p>V_in: Boolean, sensed ventricular event after sensing</p>
+            <h6>Inputs</h6>
+            <p>A_sense: Boolean, sensed atrial event after sensing</p>
+            <p>V_sense: Boolean, sensed ventricular event after sensing</p>
+            <p><strong>Outputs</strong></p>
+            <p>inhibit: Boolean, whether therapy is inhibited at a particular time.</p>
+            <p>therapy: Boolean, whether therapy is delivered at a particular time.</p>
             <h6>ICD States</h6>
-            <p>A_clk: The time (in msec) since the last atrial event, resets when A_in=1</p>
-          <p>V_clk: The time (in msec) since the last ventricular event, resets when V_in=1</p>
-            <p>A_win: The last 10 intervals between consequtive atrial events. Updated for every new atrial events as FIFO.</p>
-            <p>V_win: The last 10 intervals between consequtive ventricular events. Updated for every new ventricular events as FIFO.</p>
-            <p>VTC_win: The type of the last 10 far-field ventricular morphology. 1 for NSR and 2 for non-NSR.</p>
-            <p>VT_dur:</p>
-            <p>VT_dur:</p>
+            <p>A_clk: integer. The time (in msec) since the last atrial event, resets when A_sense=1</p>
+          <p>V_clk: integer. The time (in msec) since the last ventricular event, resets when V_sense=1</p>
+            <p>A_win: 10*1 integer array. The last 10 intervals between consequtive atrial events. Updated for every new atrial events as FIFO.</p>
+            <p>V_win: 10*1 integer array. The last 10 intervals between consequtive ventricular events. Updated for every new ventricular events as FIFO.            </p>
+            <p>VTC_morph: 200*1 integer array. The rolling window of   far-field ventricular morphology</p>
+            <p>NSR_temp:</p>
+              <ul>
+                <li>raw:	200*1 integer array. The far-field ventricular EGM during NSR</li>
+                <li>refx: 8*1 integer array. 1:25:200</li>
+                <li>refy: 8*1 integer array. raw(refx)</li>
+              </ul>
+            <p>VTC_win: 10*1 integer array. The type of the last 10 far-field ventricular morphology, 1 for NSR and 2 for non-NSR.</p>
+            <p>VTduration: boolean. Whether the ICD is during the VT duration.</p>
+            <p>VFduration: boolean. Whether the ICD is during the VF duration.</p>
+            <p>VTdur_count: integer. The time (in msec) since the ICD entered VT duration.</p>
+            <p>VFdur_count: integer. The time (in msec) since the ICD entered VF duration.</p>
+            <p>&nbsp;</p>
           
 
 <!--/acc-v1-->
