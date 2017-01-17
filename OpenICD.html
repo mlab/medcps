@@ -315,6 +315,7 @@
             <h6>Inputs</h6>
             <p>A_sense: Boolean, sensed atrial event after sensing</p>
             <p>V_sense: Boolean, sensed ventricular event after sensing</p>
+            <p>V_shock: Integer, far-field ventricular EGM</p>
             <p><strong>Outputs</strong></p>
             <p>inhibit: Boolean, whether therapy is inhibited at a particular time.</p>
             <p>therapy: Boolean, whether therapy is delivered at a particular time.</p>
@@ -335,7 +336,47 @@
             <p>VFduration: boolean. Whether the ICD is during the VF duration.</p>
             <p>VTdur_count: integer. The time (in msec) since the ICD entered VT duration.</p>
             <p>VFdur_count: integer. The time (in msec) since the ICD entered VF duration.</p>
-            <p>&nbsp;</p>
+            <p><strong>Algorithm flow</strong></p>
+            <p>At each time stamp (1msec):</p>
+            <ul>
+              <li>Aclk and Vclk increase by 1</li>
+              <li>VTC_morph, the 200msec moving window for far-field ventricular morphology, do a FIFO action for V_shock.</li>
+            </ul>
+            <p>When A_sense==true:</p>
+            <ul>
+              <li>A_win perform a FIFO action for Aclk to save the interval between the last two atrial events</li>
+              <li>Reset Aclk</li>
+            </ul>
+            <p>When V_sense==true:</p>
+            <ul>
+              <li>V_win perform a FIFO action for Vclk to save the interval between the last two atrial events</li>
+              <li>Reset Vclk</li>
+              <li>If 8/10 of the intervals in V_win is less than the VF threshold, and the last interval in V_win is less than the VF threshold, set VFduration to true and reset VFdur_count</li>
+              <li>If 8/10 of the intervals in V_win is less than the VT threshold, and the last interval in V_win is less than the VT threshold, set VTduration to true and reset VTdur_count</li>
+            </ul>
+            <p>100msec after  V_sense==true</p>
+            <ul>
+              <li>Compare the 200 data point in VTC_morph with the NSR template</li>
+              <li>If similarity (fcc) is greater than 94%, do a FIFO action for VTC_win with 1, otherwise do it with 2</li>
+            </ul>
+            <p>During VF duration</p>
+            <ul>
+              <li>At any time, if 6/10 intervals in V_win is less than VF threshold and the last interval is less than VF threshold, drop off the duration by setting VFduration to false</li>
+              <li>At the end of the duration, If less than 6/10 V_win intervals during duration or the last interval is slower than VF threshold, inhibit therapy and set VFduration to false. Otherwise deliver therapy.</li>
+            </ul>
+            <p>During VT duration</p>
+            <ul>
+              <li>At any time, if 6/10 intervals in V_win is less than VT threshold and the last interval is less than VT threshold, drop off the duration by setting VTduration to false</li>
+              <li>At the end of the duration, If less than 6/10 V_win intervals during duration or the last interval is slower than VT threshold, inhibit therapy and set VTduration to false.</li>
+              <li>Otherwise use 4 discriminator to determine whether the episode is SVT. The organization of the decision is in the diagram above.
+                <ul>
+                  <li>VgtA: If the mean ventricular rate in V_win is 10bpm faster than the atrial rate in A_win, the episode is more likely to be VT.</li>
+                  <li>VTC: If 3/10 of the last 10 far-field ventricular morphology is 94% correlated with the morphology during NSR, it's more lilely to be SVT</li>
+                  <li>STB: If the covarience of the last 10 ventricular intervals in V_win is larger than 20, the ventricular rate is unstable thus it's more likely to be SVT</li>
+                  <li>Afib: If 6/10 of the last 10 atrial intervals are shorter than the AF threshold, it's more likely to be SVT</li>
+                </ul>
+              </li>
+            </ul>
           
 
 <!--/acc-v1-->
