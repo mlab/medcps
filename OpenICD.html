@@ -312,14 +312,14 @@
           <p>RhythmID utilize a combination of the features described above. The decision flow to determine whether a rhythm is VT or SVT is shown below:</p>
             <p><img src="assets/img/BS_det.png" width="624" height="526"  alt=""/></p>
             <p>The Matlab function for RhythmID can be downloaded <a href="assets/downloads/vhm/OpenICD.zip">here</a>. Now we walk through the code for better understanding.</p>
-            <h6>Inputs</h6>
+            <p><strong>Inputs</strong></p>
             <p>A_sense: Boolean, sensed atrial event after sensing</p>
             <p>V_sense: Boolean, sensed ventricular event after sensing</p>
             <p>V_shock: Integer, far-field ventricular EGM</p>
             <p><strong>Outputs</strong></p>
             <p>inhibit: Boolean, whether therapy is inhibited at a particular time.</p>
             <p>therapy: Boolean, whether therapy is delivered at a particular time.</p>
-            <h6>ICD States</h6>
+            <p><strong>ICD States</strong></p>
             <p>A_clk: integer. The time (in msec) since the last atrial event, resets when A_sense=1</p>
           <p>V_clk: integer. The time (in msec) since the last ventricular event, resets when V_sense=1</p>
             <p>A_win: 10*1 integer array. The last 10 intervals between consequtive atrial events. Updated for every new atrial events as FIFO.</p>
@@ -380,9 +380,12 @@
             <h2>Medtronic PRLogic</h2>
             <p>Compared to RhythmID, the PRLogic by Medtronic is a much more complex and less intuitive algorithm. </p>
             <h4>Clinical Features</h4>
-            <p><img src="assets/img/MED_features.jpg" width="752" height="745"></p>
+          <p>There are some similarities between the clinical features used in PRLogic and RhythmID. However, there are features in PRLogic that are not considered in RhythmID. For the ones that are similar in principle, we will focus on their differences in implementation.</p>
+            <h5>1. Ventricular rate</h5>
+            <p>A sustained fast ventricular rate is obviously a strong indication of VT. In PRLogic, the implementation is slightly different. Instead of looking at the ventricular rate in a detection period and a duration, PRLogic looks at the ventricular rate during a longer period of time. An episode has to have 18 consecutive fast ventricular intervals to be considered as VT, and 18/24 very fast ventricular intervals to be considered as VF.</p>
+            <h5>2. Atrial Rate</h5>
             <p>&nbsp;</p>
-            <p><img src="assets/img/MED_overall.jpg" width="757" height="882"><img src="assets/img/MED_pattern.jpg" width="960" height="1280"><img src="assets/img/MED_flow.jpg" width="864" height="1200"><img src="assets/img/MED_PR.jpg" width="539" height="1208"><img src="assets/img/MED_descriptions.jpg" width="776" height="1207"></p>
+            <p><img src="assets/img/MED_overall.jpg" width="757" height="882"><img src="assets/img/MED_pattern.jpg" width="960" height="1280"><img src="assets/img/MED_PR.jpg" width="539" height="1208"><img src="assets/img/MED_descriptions.jpg" width="776" height="1207"></p>
           
 
 <!--/acc-v1-->
