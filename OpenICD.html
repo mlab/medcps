@@ -291,7 +291,7 @@
 <p>Implantable Cardioverter Difibrillators (ICDs) are designed to identify fatal heart conditions like Ventricular Tachycardia (VT) and deliver electrical shock to restore normal heart rhythm. A typical ICD has two leads inserted into the heart which measure local electrical activities in the right atrium and right ventricle, respectively. The electrical signals are referred to as <strong>Electrograms (EGMs)</strong>. </p>
             <p><img src="assets/img/MBCT_pro.png" width="600" height="333"></p>
             <p>Based on the timing and morphology of the EGMs, the ICD needs to distinguish between fatal Ventricular Tachycardia (VT) and non-fatal Supra-Ventricular Tachycardia (SVT). It is important to deliver therapy for all VTs, but therapies delivered during SVTs are considered as <strong>inappropriate</strong>. Inapprppriate shocks are decrimental to patient health and device manufacturers have developed algorithms to reduce the frequency of inappropriate therapies.</p>
-            <p>We have implemented the VT/SVT discrimination algorithm from two major ICD manufacturers, and by sharing them we hope to encourage researchers to develop better VT/SVT algorithms.            In each algorithm description, we start by introducing the clinical features that the algorithm looks for and why, and then go into the implementation details. In the end, we will provide the link to the Matlab implementation.</p>
+            <p>We have implemented the VT/SVT discrimination algorithm from two major ICD manufacturers, and by sharing them we hope to encourage researchers to develop better VT/SVT algorithms.            In each algorithm description, we start by introducing the clinical features that the algorithm looks for and why, and then go into the implementation details. The Matlab function for RhythmID and PRLogic and a starter kit can be downloaded <a href="assets/downloads/vhm/OpenICD.zip"><strong>here</strong></a>. </p>
             <div class="headline">
               <h2>Boston Scientific RhythmID            </h2>
               <p>RhythmID is a very straightfoward algorithm and has been working very well in most heart conditions.</p>
@@ -311,7 +311,7 @@
             <h4>Algorithm Descriptions</h4>
           <p>RhythmID utilize a combination of the features described above. The decision flow to determine whether a rhythm is VT or SVT is shown below:</p>
             <p><img src="assets/img/BS_det.png" width="624" height="526"  alt=""/></p>
-            <p>The Matlab function for RhythmID can be downloaded <a href="assets/downloads/vhm/OpenICD.zip">here</a>. Now we walk through the code for better understanding.</p>
+            <p>Now we walk through the code for better understanding.</p>
             <p><strong>Inputs</strong></p>
             <p>A_sense: Boolean, sensed atrial event after sensing</p>
             <p>V_sense: Boolean, sensed ventricular event after sensing</p>
@@ -385,8 +385,64 @@
             <p>A sustained fast ventricular rate is obviously a strong indication of VT. In PRLogic, the implementation is slightly different. Instead of looking at the ventricular rate in a detection period and a duration, PRLogic looks at the ventricular rate during a longer period of time. An episode has to have 18 consecutive fast ventricular intervals to be considered as VT, and 18/24 very fast ventricular intervals to be considered as VF.</p>
             <h5>2. Atrial Rate</h5>
             <p>A fast atrial rate is a strong indication of SVT. In PRLogic, atrial rate is considered together with ventricular rate to consider whether an episode is SVT.</p>
-            <p>&nbsp;</p>
-            <p><img src="assets/img/MED_overall.jpg" width="757" height="882"><img src="assets/img/MED_pattern.jpg" width="960" height="1280"><img src="assets/img/MED_PR.jpg" width="539" height="1208"><img src="assets/img/MED_descriptions.jpg" width="776" height="1207"></p>
+            <h5>3. Ventricular rate regularity</h5>
+            <p>This feature is similar to the ventrcular rate stability in RhythmID. PRLogic looks at the last 18 ventricular intervals and creates a histogram for interval 230:10:400. If the number of the intervals which fall into the 2 most dominant categories are larger than 14, the rhythm is considered as regular.</p>
+            <h5>4. PR Association</h5>
+            <p>The correlation between atrial and ventricular events is a good indication of the direction the signal is traveling. i.e. from atrial to ventricle or vice versa. For each ventricular event, PRLogic looks at whether there exists atrial event(s) before it and the timing relationship between the last atrial event and the ventricular event, to determine whether the atrial event is &quot;associated&quot; with the ventricular event.</p>
+            <h5>5. PR Pattern</h5>
+            <p>The pattern of atrial and ventricular events contains vital information on whether an episode is SVT or VT. RhythmID does not consider PR pattern at all. In PRLogic the PR pattern is the most complex component are is the key to determine different rhythms. For each two ventricular intervals, PRLogic looks at how many atrial events are within these intervals and the timing relations with the ventricular events. There are 19 couple codes which are shown below. PRLogic then use the sequence of couple codes to categorize the rhythm.</p>
+            <p><img src="assets/img/MED_pattern.jpg" width="960" height="1280"></p>
+            <h4>Algorithm Description            </h4>
+            <p><strong>Inputs</strong></p>
+            <p>A_sense: Boolean, sensed atrial event after sensing</p>
+            <p>V_sense: Boolean, sensed ventricular event after sensing</p>
+            <p>V_shock: Integer, far-field ventricular EGM</p>
+            <p><strong>Outputs</strong></p>
+            <p>inhibit: Boolean, whether therapy is inhibited at a particular time.</p>
+            <p>therapy: Boolean, whether therapy is delivered at a particular time.</p>
+            <p><strong>ICD States</strong></p>
+            <p>A_clk: integer. The time (in msec) since the last atrial event, resets when A_sense=1</p>
+            <p>V_clk: integer. The time (in msec) since the last ventricular event, resets when V_sense=1</p>
+            <p>A_win: 10*1 integer array. The last 10 intervals between consequtive atrial events. Updated for every new atrial events as FIFO.</p>
+          <p>V_win: 24*1 integer array. The last 24 intervals between consequtive ventricular events. Updated for every new ventricular events as FIFO. </p>
+            <p>shock_buf: 200*1 integer array. The rolling window of   far-field ventricular morphology</p>
+            <p>VTC_win: 10*1 integer array. The type of the last 10 far-field ventricular morphology, 1 for NSR and 2 for non-NSR.</p>
+            <p>NOA_win: 5*1 integer array. The number of atrial events between each of the last 5 ventricular intervals</p>
+            <p>PRpattern: 5 letter string. The last 5 couple codes</p>
+            <p>PRwin: 5*1 integer array. The last 5 intervals between each ventricular event to the last atrial event. The number is Inf if there is no atrial events during the interval.</p>
+            <p>PRassociate: 8*1 boolean array. Whether the last 8 A-V event pairs are correlated.</p>
+            <p>FFRW_win: 12*1 boolean array. Whether the last 12 ventricular intervals have potential far-field R-wave oversensing</p>
+            <p>FFRW: integer. The number of potential far-field R-wave oversensing in the last 12 ventricular intervals.</p>
+            <p>LastRR: integer array. The time since the last ventricular event before atrial event(s) happened. </p>
+            <p>SecondLastRR:  The time since the second last ventricular event before atrial event(s) happened. </p>
+            <p><strong>Algorithm flow</strong></p>
+          <p>At each time stamp (1msec):</p>
+            <ul>
+              <li>Aclk and Vclk increase by 1</li>
+              <li>VTC_morph, the 200msec moving window for far-field ventricular morphology, do a FIFO action for V_shock.</li>
+            </ul>
+            <p>When A_sense==true:</p>
+            <ul>
+              <li>A_win perform a FIFO action for Aclk to save the interval between the last two atrial events</li>
+              <li>Reset Aclk</li>
+              <li>Do a FIFO action to the Vclk into the LastRR</li>
+            </ul>
+            <p>When V_sense==true:</p>
+            <ul>
+              <li>V_win performs a FIFO action for Vclk to save the interval between the last two atrial events</li>
+              <li>Reset Vclk</li>
+              <li>Update SecondLastRRThe with LastRR and empty LastRR</li>
+              <li>Add the last A-V interval to PRwin, if any</li>
+              <li>Calculate the PR association for the last ventricular interval and add to PRassociate</li>
+              <li>Calculate RR regularity</li>
+              <li>NOA_win performs a FIFO action for the number of atrial events in the last ventricular interval</li>
+              <li>Calculate the coupling code and do a FIFO action for PRpattern</li>
+              <li>Update the counter for Sinus Tachycardia, OtherSVT, AFevidence, FFRW</li>
+              <li>
+                <p>The decision tree of PRLogic is shown below. Note that unlike in RhythmID which checks VT/VF first and then SVT, PRLogic checks all potential SVTs before checking VT/VT.</p>
+                <p><img src="assets/img/MED_overall.jpg" alt="" width="757" height="882"></p>
+              </li>
+            </ul>
           
 
 <!--/acc-v1-->
