@@ -694,29 +694,45 @@
 		<div class="row">
 			<div class="col-md-6">						
 	            <p class="copyright-space">
-                2014 &copy; mLab.Upenn. ALL Rights Reserved.</p>
+                <span id="year"></span> &copy; mLab.Upenn. ALL Rights Reserved.</p>
 			</div>
 			<div class="col-md-6">	
 				<a href="http://precise.seas.upenn.edu/">
                     <img src="assets/img/precise.png" alt="" width="255" height="65" class="pull-right" id="logo-footer" />
                 </a>
 			</div>
-		</div><!--/row-->
-	</div><!--/container-->	
-</div><!--/copyright-->	
+		</div>
+	</div>
+</div>
 <!--=== End Copyright ===-->
 
-<!-- JS Global Compulsory -->           
+<script> document.getElementById("year").innerHTML = new Date().getFullYear(); </script>
+
+<!-- JS Global Compulsory -->			
 <script type="text/javascript" src="assets/plugins/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
 <script type="text/javascript" src="assets/plugins/hover-dropdown.min.js"></script> 
 <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+<!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="assets/plugins/flexslider/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="assets/plugins/parallax-slider/js/modernizr.js"></script>
+<script type="text/javascript" src="assets/plugins/parallax-slider/js/jquery.cslider.js"></script> 
 <!-- JS Page Level -->           
 <script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/pages/index.js"></script>
+
+<!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="assets/plugins/jquery.mixitup.min.js"></script>    
+<!-- JS Page Level -->           
+<script type="text/javascript" src="assets/js/pages/portfolio.js"></script>
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        App.init();
+      	App.init();
+        App.initSliders();
+		Portfolio.init(); 
+        Index.initParallaxSlider();
     });
 </script>
 <script>
@@ -729,9 +745,6 @@
   ga('send', 'pageview');
 
 </script>
-<!--[if lt IE 9]>
-    <script src="assets/plugins/respond.js"></script>
-<![endif]-->
 
 </body>
-</html> 
+</html>	

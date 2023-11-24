@@ -606,7 +606,7 @@ Please provide your contact information the form below. The link to the download
 		<div class="row">
 			<div class="col-md-6">						
 	            <p class="copyright-space">
-                2014 &copy; mLab.Upenn. ALL Rights Reserved.</p>
+                    <span id="year"></span> &copy; mLab.Upenn. ALL Rights Reserved.</p>
 			</div>
 			<div class="col-md-6">	
 				<a href="http://precise.seas.upenn.edu/">
@@ -617,6 +617,8 @@ Please provide your contact information the form below. The link to the download
 	</div><!--/container-->	
 </div><!--/copyright-->	
 <!--=== End Copyright ===-->
+
+<script> document.getElementById("year").innerHTML = new Date().getFullYear(); </script>
 
 <!-- JS Global Compulsory -->			
 <script type="text/javascript" src="assets/plugins/jquery-1.10.2.min.js"></script>
