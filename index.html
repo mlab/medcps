@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+
+</style>
+
 <head>
-    <title>Medical Devices at Penn</title>
+    <title>Medical Cyber-Physical Systems at Penn</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Zhihao Jiang@mLab">
     <!-- CSS Global Compulsory-->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -18,7 +21,7 @@
     <!-- CSS Implementing Plugins -->    
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="assets/plugins/flexslider/flexslider.css">    	
-    <link rel="stylesheet" href="assets/plugins/parallax-slider/css/parallax-slider.css">
+
      <!-- CSS Page Style -->    
     <link rel="stylesheet" href="assets/css/pages/portfolio-v2.css">    
     <!-- CSS Theme -->    
@@ -103,86 +106,90 @@
         </div>
     </div>
 </div>
-<!--=== End Header ===-->    
 
 <!--=== Slider ===-->
-<div class="slider-inner">
-    <div id="da-slider" class="da-slider" style="background-position: 200% 0%;">
-        
-    <div class="da-slide da-slide-current">
-        <h2><i>Computational heart model</i> <br> <i>for clinical left atrium</i> <br> <i>arrhythmia ablation</i></h2>        
-        <div class="da-img"><img src="assets/img/jiyue/our_approach.PNG" alt="" width="500"></div>
+<div class="container">
+    <div class="mySlides">
+      <img src="assets/img/jiyue/our_approach.PNG">
+      <h2 style="color:#666; text-align: center;">Computational heart model for clinical left atrium arrhythmia ablation.</h2>
+    </div>
+    <div class="mySlides">
+      <img src="assets/img/jiyue/fiber_effect_experiments.PNG">
+      <h2 style="color:#666; text-align: center;">Fiber effect on activation patterns.</h2>
+    </div>
+    <div class="mySlides">
+      <img src="assets/img/jiyue/cancellation_effect.PNG">
+      <h2 style="color:#666; text-align: center;">Fiber's cancellation effect.</h2>
+    </div>
+    <div class="mySlides">
+      <img src="assets/img/jiyue/arrhythmia_simulations.PNG">
+      <h2 style="color:#666; text-align: center;">Arrhythmia simulations.</h2>
+    </div>
+    <div class="mySlides">
+      <img src="assets/img/jiyue/slab_experiment.PNG">
+      <h2 style="color:#666; text-align: center;">Fiber's effect on rotor arrhythmias.</h2>
+    </div>
+    <div class="mySlides">
+      <img src="assets/img/jiyue/evaluation.png">
+      <h2 style="color:#666; text-align: center;">Voltage threshold for determing scar regions in atrial fibrillation maps.</h2>
+    </div>
+    <div class="mySlides">
+        <img src="assets/img/zhihao/framework.png">
+        <h2 style="color:#666; text-align: center;">Model-based Medical Devices Software Design. From Verified Model to Verified Code.</h2>
+    </div>
+    <div class="mySlides">
+        <img src="assets/img/zhihao/emg.gif">
+        <h2 style="color:#666; text-align: center;">Heart Modeling for Closed-loop Evaluation of Pacemakers. Let our heart catch the bugs Before your heart does.</h2>
+    </div>
+    <div class="mySlides">
+        <img src="assets/img/zhihao/cegar.png">
+        <h2 style="color:#666; text-align: center;">Pacemaker Software verification with heart models. Safety and efficacy performance of the pacemaker at model level.</h2>
+    </div>
+    <div class="mySlides">
+        <img src="assets/img/zhihao/hardware.png">
+        <h2 style="color:#666; text-align: center;">Heart-On-a-Chip Platform. Low-cost platform for pacemaker Evaluation & research.</h2>
     </div>
 
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Fiber effect</i> <br> <i>on activation patterns</i></h2>        
-        <div class="da-img"><img src="assets/img/jiyue/fiber_effect_experiments.PNG" alt="" width="500"></div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    
+    <div class="caption-container">
+      <p id="caption"></p>
     </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Fiber's cancellation effect</i> </h2>        
-        <div class="da-img"><img src="assets/img/jiyue/cancellation_effect.PNG" alt="" width="500"></div>
+    
+    <div class="row">
+      <div class="column">
+        <img class="demo cursor" src="assets/img/jiyue/our_approach.PNG" style="width:100%" onclick="currentSlide(1)">        
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/jiyue/fiber_effect_experiments.PNG" style="width:100%" onclick="currentSlide(2)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/jiyue/cancellation_effect.PNG" style="width:100%" onclick="currentSlide(3)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/jiyue/arrhythmia_simulations.PNG" style="width:100%" onclick="currentSlide(4)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/jiyue/slab_experiment.PNG" style="width:100%" onclick="currentSlide(5)">
+      </div>    
+      <div class="column">
+        <img class="demo cursor" src="assets/img/jiyue/evaluation.png" style="width:100%" onclick="currentSlide(6)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/zhihao/framework.png" style="width:100%" onclick="currentSlide(7)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/zhihao/emg.gif" style="width:100%" onclick="currentSlide(8)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/zhihao/cegar.png" style="width:100%" onclick="currentSlide(9)">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="assets/img/zhihao/hardware.png" style="width:100%" onclick="currentSlide(10)">
+      </div>
     </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Arrhythmia simulations</i> </h2>        
-        <div class="da-img"><img src="assets/img/jiyue/arrhythmia_simulations.PNG" alt="" width="500"></div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Fiber's effect</i> <br> <i>on rotor arrhythmias</i></h2>        
-        <div class="da-img"><img src="assets/img/jiyue/slab_experiment.PNG" alt="" width="500"></div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Voltage threshold for</i> <br> <i>determing scar regions</i> <br> <i>in atrial fibrillation maps</i></h2>        
-        <div class="da-img"><img src="assets/img/jiyue/evaluation.png" alt="" width="500"></div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Arrhythmia source detection</i> </h2>        
-        <div class="da-img"><img src="assets/img/jiyue/useful_maps.PNG" alt="" width="500"></div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Heart model validation</i> <br> <i>with patient data</i></h2>        
-        <div class="da-img"><img src="assets/img/jiyue/patient_sim_lat_maps.PNG" alt="" width="500"></div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Model-based</i> <br> <i>Medical Devices</i> <br> <i>Software Design</i></h2>
-        <p><i>From Verified Model</i> <br> <i>to Verified Code</i></p>
-        <div class="da-img"><img src="assets/img/framework.png" alt=""></div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Heart Modeling</i> <br> <i>for Closed-loop </i> <br> <i>Evaluation of Pacemakers</i></h2>
-        <p><i>Let our heart catch the bugs</i> <br> <i>Before your heart does</i></p>
-        <div class="da-img">
-            <img src="assets/img/emg.gif" alt="">
-            <!--<iframe src="47911018.htm" width="530" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe> -->
-        </div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Pacemaker Software</i> <br> <i>verification</i> <br> <i>with heart models</i></h2>
-        <p><i>Safety and efficacy performance</i> <br> <i>of the pacemaker</i> <br> <i>at model level</i></p>
-        <div class="da-img"><img src="assets/img/cegar.png" alt="image01"></div>
-    </div>
-
-    <div class="da-slide da-slide-toleft">
-        <h2><i>Heart-On-a-Chip</i> <br> <i>Platform</i> </i></h2>
-        <p><i>Low-cost platform</i> <br> <i>for pacemaker</i> <br> <i>Evaluation & research</i></p>
-        <div class="da-img"><img src="assets/img/hardware.png" alt="image01"></div>
-    </div>
-
-    <div class="da-arrows">
-        <span class="da-arrows-prev"></span>
-        <span class="da-arrows-next"></span>		
-    </div>
-</div><!--/da-slider-->
-</div><!--/slider-->
-<!--=== End Slider ===-->
+</div>
 
 <!--=== Purchase Block ===-->
 <div class="purchase">
@@ -450,6 +457,7 @@
         Index.initParallaxSlider();
     });
 </script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -458,7 +466,37 @@
 
   ga('create', 'UA-47583076-1', 'medcps.org');
   ga('send', 'pageview');
+</script>
 
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
 </script>
 
 </body>
