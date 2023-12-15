@@ -1442,52 +1442,50 @@ ul.blog-tags a:hover i {
 	font-size: 12px;
 }
 
-
 /* image slider of the home page */
 
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+	max-width: 100%;
 }
 
-/* Position the image container (needed to position the left and right arrows) */
 .container {
-    position: relative;
+    position: relative; /* Position the image container (needed to position the left and right arrows) */
 }
 
-/* Hide the images by default */
 .mySlides {
-    display: none;
+    display: none; /* Hide the images by default */
 }
 
-/* Add a pointer when hovering over the thumbnail images */
 .cursor {
-    cursor: pointer;
+    cursor: pointer; /* Add a pointer when hovering over the thumbnail images */
 }
 
-/* Next & previous buttons */
 .prev,
-.next {
+.next { /* Next & previous buttons */
     cursor: pointer;
     position: absolute;
     top: 40%;
     width: auto;
-    padding: 16px;
+    padding: 20px;
     margin-top: -50px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(84, 209, 1);
     font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
+    font-size: 25px;
     user-select: none;
     -webkit-user-select: none;
 }
 
-/* Position the "next button" to the right */
-.next {
+.next { /* Position the "next button" to the right */
     right: 0;
-    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+	text-decoration: none;
+	color: rgb(196, 196, 196);
 }
 
 .row:after {
@@ -1496,7 +1494,6 @@ img {
     clear: both;
 }
 
-/* number of columns side by side */
 .column {
     float: left;
     width: 10%; /* 100% / number of columns */
