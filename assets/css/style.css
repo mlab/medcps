@@ -1459,13 +1459,8 @@ img {
     display: none; /* Hide the images by default */
 }
 
-.cursor {
-    cursor: pointer; /* Add a pointer when hovering over the thumbnail images */
-}
-
 .prev,
 .next { /* Next & previous buttons */
-    cursor: pointer;
     position: absolute;
     top: 40%;
     width: auto;
@@ -1485,7 +1480,7 @@ img {
 
 .prev:hover, .next:hover {
 	text-decoration: none;
-	color: rgb(196, 196, 196);
+	color: white;
 }
 
 .row:after {
