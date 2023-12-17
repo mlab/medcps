@@ -14,7 +14,7 @@ class Navigation extends HTMLElement {
 
             <div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown active"><a href="index.html">Home</a></li>
+                    <li class="dropdown"><a href="index.html">Home</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Research<i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
@@ -26,6 +26,7 @@ class Navigation extends HTMLElement {
                             <li><a href="model_based_design_for_pacemaker_software.html">Model-based design for pacemaker software</a></li>
                             <li><a href="computer_aided_clinical_trials.html">Computer-aided clinical trials</a></li>
                             <li><a href="physiological_control_systems.html">Physiological control systems</a></li>
+                            <li><a href="open_icd.html">An Open Platform for Safer ICDs</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="publications.html">Publications</a></li>
