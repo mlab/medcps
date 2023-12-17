@@ -1,48 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Medical Cyber-Physical Systems at Penn</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/header.css">
-<link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.css">
+<script src="components/header.js" type="text/javascript" defer></script>
+<script src="components/navigation.js" type="text/javascript" defer></script>
+<script src="components/footer.js" type="text/javascript" defer></script>
+
+<header-component></header-component>
 
 <body>
-
-<!--=== Header ===-->    
-<div class="header">
-  <div class="navbar navbar-default" role="navigation">
-      <div class="container">
-          <div class="navbar-header">
-              <a class="navbar-brand" href="index.html"><img id="logo-header" src="assets/img/logo.png" alt="Logo"></a>
-          </div>
-
-          <div>
-              <ul class="nav navbar-nav navbar-right">
-                  <li class="dropdown active"><a href="index.html">Home</a></li>
-                  <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Research<i class="icon-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                          <li><a href="patient_specific_heart_modeling.html">Patient-specific Heart Modeling</a></li>
-                          <li><a href="fiber_effect.html">Myocardial Fiber Effects on Arrhythmia Activation Patterns</a></li>
-                          <li><a href="VHM.html">Heart Modeling for Closed-loop Evaluation of Pacemakers</a></li>
-                          <li><a href="verification.html">Pacemaker Software Verification</a></li>
-                          <li><a href="MBD.html">Model-based Design for Medical Device Software</a></li>
-                          <li><a href="MBCT.html">Computer-Aided Clinical Trials</a></li>
-                          <li><a href="physiology.html">Physiological Control Systems</a></li>
-                      </ul>
-                  </li>
-                  <li class="dropdown"><a href="publications.html">Publications</a></li>
-                  <li class="dropdown"><a href="people.html">People</a></li>
-                  <li class="dropdown"><a href="awards.html">Awards</a></li>
-                  <li class="dropdown"><a href="downloads.html">Downloads</a></li>
-                  </li><li class="dropdown"><a href="faq.html">FAQ</a></li>
-              </ul>
-          </div>
-      </div>
-  </div>
-</div>
+<navigation-component></navigation-component>
 
 <div class="breadcrumbs margin-bottom-40">
     <div class="container">
@@ -216,51 +181,11 @@
 		<!--/col-md-3-->            		
     </div><!--/row-->
 </div><!--/container-->		
-<!--=== End Content Part ===-->
 
-<!--=== Footer ===-->
-<div class="footer">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 md-margin-bottom-40">
-		        <div class="headline"><h2>About</h2></div>	
-				<p class="margin-bottom-25 md-margin-bottom-40">The Medical Cyber-Physical System research in Penn is part of the <a href="http://precise.seas.upenn.edu/" target="_blank">PRECISE research group</a>.</p>	
-			</div>
-			
-			<div class="col-md-4">
-		        <div class="headline"><h2>Contact</h2></div>	
-                <address class="md-margin-bottom-40">
-                    University of Pennsylvania<br />
-                    Levine building room 279<br />
-					3330 Walnut Street<br />
-					Philadelphia, PA, 19104<br />
-					Email: rahulm@seas.upenn.edu
-                </address>
-		  </div>
-		</div>
-	</div>
-</div>
-
-<!--=== Copyright ===-->
-<div class="copyright">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">						
-	            <p class="copyright-space">
-                <span id="year"></span> &copy; MedCPS. ALL Rights Reserved.</p>
-			</div>
-			<div class="col-md-6">	
-				<a href="http://precise.seas.upenn.edu/">
-                    <img src="assets/img/precise.png" alt="" width="255" height="65" class="pull-right" id="logo-footer" />
-                </a>
-			</div>
-		</div>
-	</div>
-</div>
+<footer-component></footer-component>
 
 <script type="text/javascript" src="assets/css/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="assets/css/hover-dropdown.min.js"></script> 
-<script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
+<script type="text/javascript" src="assets/css/hover-dropdown.min.js"></script>
 
 </body>
 </html>	
