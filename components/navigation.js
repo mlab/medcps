@@ -9,7 +9,7 @@ class Navigation extends HTMLElement {
     <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html"><img id="logo-header" src="assets/img/logo.png" alt="Logo"></a>
+                 <a class="navbar-brand" href="index.html"><img id="logo-header" src="assets/img/logo.png" alt="Logo"></a>
             </div>
 
             <div>
