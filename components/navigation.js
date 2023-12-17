@@ -18,13 +18,14 @@ class Navigation extends HTMLElement {
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Research<i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="patient_specific_heart_modeling.html">Patient-specific Heart Modeling</a></li>
-                            <li><a href="fiber_effect.html">Myocardial Fiber Effects on Arrhythmia Activation Patterns</a></li>
-                            <li><a href="VHM.html">Heart Modeling for Closed-loop Evaluation of Pacemakers</a></li>
-                            <li><a href="verification.html">Pacemaker Software Verification</a></li>
-                            <li><a href="MBD.html">Model-based Design for Medical Device Software</a></li>
-                            <li><a href="MBCT.html">Computer-Aided Clinical Trials</a></li>
-                            <li><a href="physiology.html">Physiological Control Systems</a></li>
+                            <li><a href="atrial_fibrillation_challenges.html">Atrial fibrillation ablation challenges</a></li>
+                            <li><a href="patient_specific_heart_modeling.html">Patient-specific heart modeling for arrhythmia ablation</a></li>
+                            <li><a href="fiber_effect.html">Fiber effects on arrhythmia patterns</a></li>
+                            <li><a href="VHM.html">Heart modeling for pacemakers closed-loop evaluation</a></li>
+                            <li><a href="verification.html">Pacemaker software verification</a></li>
+                            <li><a href="MBD.html">Model-based design for medical device software</a></li>
+                            <li><a href="MBCT.html">Computer-aided clinical trials</a></li>
+                            <li><a href="physiology.html">Physiological control systems</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="publications.html">Publications</a></li>
