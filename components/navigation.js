@@ -21,11 +21,11 @@ class Navigation extends HTMLElement {
                             <li><a href="atrial_fibrillation_challenges.html">Atrial fibrillation ablation challenges</a></li>
                             <li><a href="patient_specific_heart_modeling.html">Patient-specific heart modeling for arrhythmia ablation</a></li>
                             <li><a href="fiber_effect.html">Fiber effects on arrhythmia patterns</a></li>
-                            <li><a href="VHM.html">Heart modeling for pacemakers closed-loop evaluation</a></li>
-                            <li><a href="verification.html">Pacemaker software verification</a></li>
-                            <li><a href="MBD.html">Model-based design for medical device software</a></li>
-                            <li><a href="MBCT.html">Computer-aided clinical trials</a></li>
-                            <li><a href="physiology.html">Physiological control systems</a></li>
+                            <li><a href="heart_modeling_for_pacemakers.html">Heart modeling for pacemakers closed-loop evaluation</a></li>
+                            <li><a href="pacemaker_software_verification.html">Pacemaker software verification</a></li>
+                            <li><a href="model_based_design_for_pacemaker_software.html">Model-based design for pacemaker software</a></li>
+                            <li><a href="computer_aided_clinical_trials.html">Computer-aided clinical trials</a></li>
+                            <li><a href="physiological_control_systems.html">Physiological control systems</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="publications.html">Publications</a></li>

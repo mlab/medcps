@@ -28,7 +28,7 @@
                                 <strong>Motivation</strong></a>
                         </h3>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse collapse">
+                    <div id="collapseOne" class="panel-collapse in">
                         <div class="panel-body">
                             <img src="assets/img/main/pacemaker.png" alt="" width="100" class="pull-right lft-img-margin img-width-100">
                             <ul class="list-unstyled">
@@ -54,7 +54,7 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
+                    <div id="collapseFour" class="panel-collapse in">
                         <div class="panel-body">
                         <img src="assets/img/challenges.png" alt="" width="300" class="pull-right lft-img-margin img-width-300">
                             <ul class="list-unstyled">
@@ -94,7 +94,7 @@
                             </a>
                         </h4>
                     </div>
-                    <div id="collapse2" class="panel-collapse collapse">
+                    <div id="collapse2" class="panel-collapse in">
                         <div class="panel-body">
                         <img src="assets/img/main/fda-logo.jpg" alt="" width="150" class="pull-right lft-img-margin img-width-150">
                            Currently the US FDA requires the device manufacturers to submit proofs for:
@@ -136,7 +136,7 @@
                         
                     </div>
                     
-                  <div id="collapseTwo" class="panel-collapse collapse">
+                  <div id="collapseTwo" class="panel-collapse in">
                         <div class="panel-body">
                             <img src="assets/img/MBD.png" alt="" width="450" class="pull-right lft-img-margin img-width-450">
                                                        
@@ -160,7 +160,7 @@
                         </h4>
                     </div>
                     
-                    <div id="collapse4" class="panel-collapse collapse">
+                    <div id="collapse4" class="panel-collapse in">
                         <div class="panel-body">
                         <p>A dual chamber pacemaker has 5 basic timing cycles which do the following things</p>
                         <ul class="list-unstyled">
@@ -185,14 +185,7 @@
 
                 <div class="headline"><h3><a id="abstraction"></a>Heart Abstractions</h3></div>
                 <p>For evaluating pacemaker which has only two leads and do simple thresholding for signal processing, we developed heart models at different abstraction levels, where each abstraction covers all possible states of the model in the previous abstraction level. Each abstraction step reduces <strong class="color-green">the complexity of the timed automata component</strong> and/or <strong class="color-green">the structure of the whole model</strong>. This establishes a <strong class="color-green">timed simulation</strong> relationship between abstraction levels with <img src="assets/img/equations/simulation.png"> where n=[1,4]. More details on heart model abstraction can be found in our <strong class="color-green1"><a href="http://repository.upenn.edu/mlab_papers/58/" target="_blank">STTT paper</a></strong>. </p>
-               <div class="tab-v1">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#ab0" data-toggle="tab">Abstraction 0</a></li>
-                    <li><a href="#ab1" data-toggle="tab">Abstraction 1</a></li>
-                    <li><a href="#ab2" data-toggle="tab">Abstraction 2</a></li>
-                    <li><a href="#ab3" data-toggle="tab">Abstraction 3</a></li>
-                    <li><a href="#ab4" data-toggle="tab">Abstraction 4</a></li>
-                </ul>                
+               <div class="tab-v1">            
                 <div class="tab-content">
                     <div class="tab-pane active" id="ab0">
                         <div class="row">
@@ -213,7 +206,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="ab1">
+                    <div class="tab-pane active" id="ab1">
                              <img src="assets/img/N1.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">          
                       <h4>Abstract conduction delay with paths</h4>
                          <p>In this abstraction we replace the <em>cond</em> state of N0 with path automata. The heart model H0 can be replaced by <img src="assets/img/equations/H0.5.png">. A more general abstraction abstracts 3 nodes and 2 paths into 2 nodes and 1 path:<img src="assets/img/equations/3to2.png">. With this property we can further abstract the structure of the model. The heart model H0.5 can be further abstracted into <img src="assets/img/equations/H1.png"> where m=9 in the structure shown on the right.<p><strong class="color-green">Proposed use:</strong><p> 
@@ -234,7 +227,7 @@
                                 <p> </p>
                                 <p> </p>
                     </div>
-                    <div class="tab-pane" id="ab2">
+                    <div class="tab-pane active" id="ab2">
                         <h4>Merging equivalent states</h4>
                         <p><img src="assets/img/N2.png" alt="" width="400" class="pull-right lft-img-margin img-width-400">At this abstraction level, we merge the <em>RRP</em> state with the <em>Rest</em> state in the node automata and <em>Double</em> with the <em>Idle</em> state in the path automata due to the same behavior. We also further abstract the structure of the heart model so H1 can be abstracted with <img src="assets/img/equations/H2.png">. The AV node has very large ERP period thus cannot be abstracted away.<p><strong class="color-green">Proposed use:</strong><p> 
                             
@@ -255,7 +248,7 @@
                                 <p> </p>
                                 <p> </p>
                     </div>
-                    <div class="tab-pane" id="ab3">
+                    <div class="tab-pane active" id="ab3">
                         <h4>Replacing the blocking property of ERP with non-determinism</h4>
                         <p><img src="assets/img/N3.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> The node automata do not trigger path conduction in response to external activation during its ERP state. In this abstraction level, this function is replaced by a non-determnistic transition in the path automata, as shown in the figure on the right. As a result of the abstraction, the AV node can be abstracted away and the heart model H2 can be abstracted by <img src="assets/img/equations/H3.png">.<p><strong class="color-green">Proposed use:</strong><p> 
                             
@@ -263,7 +256,7 @@
                                 
                                 </p>     </p></p>
                     </div>
-                    <div class="tab-pane" id="ab4">
+                    <div class="tab-pane active" id="ab4">
                         <h4>Abstracting the conduction property with non-determinism</h4>
                         <p><img src="assets/img/N4.png" alt="" width="400" class="pull-right lft-img-margin img-width-400"> Since the pacemaker only has two leads, the structure of the heart model can be further reduced to two node automata which can generate inputs to the pacemaker without timing constraints. The heart model H3 can be further abstracted to <img src="assets/img/equations/H4.png">. This heart model covers all possible inputs to the pacemaker and is our most abstracted model. </p><p><strong class="color-green">Proposed use:</strong><p> 
                             
@@ -286,7 +279,7 @@
                         </h4>
                     </div>
                     
-                    <div id="collapse9" class="panel-collapse collapse">
+                    <div id="collapse9" class="panel-collapse in">
                         <div class="panel-body">
                         <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
                         <img src="assets/img/monitor.png" alt="" width="450">
@@ -321,7 +314,7 @@
                         </h4>
                     </div>
                     
-                    <div id="collapse13" class="panel-collapse collapse">
+                    <div id="collapse13" class="panel-collapse in">
                         <div class="panel-body">
                         <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
                         <img src="assets/img/cegar_b.png" alt="" width="550">
@@ -340,7 +333,7 @@
                         </h4>
                     </div>
                     
-                    <div id="collapse11" class="panel-collapse collapse">
+                    <div id="collapse11" class="panel-collapse in">
                         <div class="panel-body">
                         <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
                         <img src="assets/img/ELT_open.jpg" alt="" width="450">
@@ -359,7 +352,7 @@
                         </h4>
                     </div>
                     
-                    <div id="collapse12" class="panel-collapse collapse">
+                    <div id="collapse12" class="panel-collapse in">
                         <div class="panel-body">
                         <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
                         <img src="assets/img/ELT_open.jpg" alt="" width="450">
@@ -378,7 +371,7 @@
                         </h4>
                     </div>
                     
-                    <div id="collapse10" class="panel-collapse collapse">
+                    <div id="collapse10" class="panel-collapse in">
                         <div class="panel-body">
                         <p>The most intuitive unsafe states for the pacemaker is when the ventricular rate is too low or the pacemaker is pacing the ventricles too fast. The two monitors <em>PLRI_test</em> and <em>PURI_test</em> which helps property specification is shown below:</p>
                         <img src="assets/img/MS_none.png" alt="" width="550">
