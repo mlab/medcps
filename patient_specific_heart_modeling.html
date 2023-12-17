@@ -52,33 +52,15 @@
 </div>
 
 <div class="breadcrumbs margin-bottom-40">
-    <div class="container">
-        <h1 class="pull-left">Physiological Control Systems</h1>
+	<div class="container">
+        <h1 class="pull-left">Patient-specific Heart Modeling</h1>
     </div>
 </div>
 
 <!--=== Content Part ===-->
-<div class="container">		
-	<div class="row">            
-        <div class="col-md-9">
-            <div class="headline"><h2>Problem Statement</h2></div>
-          <p>To improve patient safety and healthcare efficiency, in modern hospitals patients are treated using a wide array of medical devices that are increasingly interacting over the network. However, to reduce the burden on caregivers and the overall health-care costs, it is necessary to guarantee safety and effectiveness of interoperating medical devices. The main challenges in these closed-loop scenarios are insufficient understanding of the human body's response to treatment, and the high degree of parametric uncertainty and variability between patients.</p>
+<div class="container">
 
-<p>To study effects of the medical device interconnectivity and interoperability with network-enabled control on the patient safety, we have considered a closed-loop clinical scenario: a system for the <b>physiologic closed-loop control of drug infusion</b> </p><img src="assets/img/PCA_hardware.png" width="600">
-
-<p>In the case-study pulse oximeter acts as the Monitoring System. It receives physiological signals from the patient and processes them to produce heart rate and SpO2 outputs. The Supervisor gets these outputs and makes a control decision, possibly sending a stop signal to the PCA Pump. Unless it is stopped by the Supervisor, the PCA pump delivers a drug to the patient at its programmed rate that corresponds to the selected operating mode. The patient model gets the drug rate as an input and updates the drug level in the patient’s body. This in turn in?uences the physiological output signals through a drug absorption function. </p>
-
-<img src="assets/img/PCA_delays.png" width="600"> 
-<p>The main contribution of our work has been the verification approach for the safety properties of closed-loop medical systems. Our method combines robust-control techniques and simulation-based analysis of a detailed model of the system (including continuous-time patient dynamics with uncertain parameters) with model checking of a more abstract timed-automata model. We have shown that the relationship between the two models preserves the crucial aspect of the timing behavior, thus, ensuring the conservativeness of the safety analysis. We also describe a system design that can guarantee open-loop safety under network failure. </p>
-
-		</div><!--/col-md-9-->
-        
-		<div class="col-md-3">
-
-        </div><!--/col-md-3-->            		
-    </div><!--/row-->
-</div><!--/container-->		
-<!--=== End Content Part ===-->
+</div>
 
 <!--=== Footer ===-->
 <div class="footer">
