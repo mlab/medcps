@@ -18,31 +18,47 @@
 <!--=== Content Part ===-->
 <div class="container">
 <h1>What is atrial arrhythmia</h1>
-<p>A healthy heart has a regular sequence of activations, while a diseased heart has irregular activations, which leads to insufficient plumbing of blood. In the United States, it is estimated that 12 million people will have atrial fibrillation in 2030. It contributes to about 160 thousand deaths each year. Symptoms include fast heartbeat, chest pain, dizziness, shortness of breath, etc.</p>
-<img src="assets/img/jiyue/healthy_vs_diseased_heart.JPG" style="width: 300px;">
+<p>A healthy heart has a regular sequence of activations, while a diseased heart has irregular activations, which leads to insufficient plumbing of blood. In the United States, it is estimated that 12 million people will have atrial fibrillation in 2030. It contributes to about 160 thousand deaths each year. Symptoms include fast heartbeat, chest pain, dizziness, shortness of breath, etc. The main treatments are: Use medicines to control the heart’s rhythm and rate; Surgery; Medicine and healthy lifestyle changes to manage atrial fibrillation risk factors. Catheter ablation is a minimally invasive surgery, which catheters are inserted into the left atrium for mapping and ablation. The tip of the ablation catheter can generate heat to kill diseased cells, to restore normal activation.</p>
 
-<p>The main treatments are: Use medicines to control the heart’s rhythm and rate; Surgery; Medicine and healthy lifestyle changes to manage atrial fibrillation risk factors. Catheter ablation is a minimally invasive surgery, which catheters are inserted into the left atrium for mapping and ablation. The tip of the ablation catheter can generate heat to kill diseased cells, to restore normal activation.</p>
-
-<img src="assets/img/jiyue/catheter_ablation.JPG" style="width: 300px;">
+<table style="margin-left: auto; margin-right: auto;">
+    <th><img src="assets/img/jiyue/healthy_vs_diseased_heart.JPG" style="height: 250px;"></th>
+    <th><img src="assets/img/jiyue/catheter_ablation.JPG" style="height: 250px;"></th>
+</table>
 
 <p>Here are some photos of the catheter ablation operating room. Thers is the patient table behind the glass where the physician operate the procedure. Technician work with the physician via the mapping system. The mapping system displays spatial and temporal data to help the physician find arrhythmia source locations.</p>
 
-<img src="assets/img/jiyue/operating_room.PNG" style="width: 1000px;">
+<img src="assets/img/jiyue/operating_room.PNG" style="width: 900px;">
 
 <p>Catheters are passed through a vein to reach the heart. They may be inserted in the groin, shoulder or neck. The 3D mapping system takes in electrograms from the catheters and creates colored maps to help the physician pinpoint the abnormal tissue. As illustrates in the figure below, there are ablations create a line of block to the abnormal activations from the pulmonary veins, and there is a cluster of ablations stop abnormal activations from a focal source.</p>
 
-<img src="assets/img/jiyue/ablations.JPG" style="width: 1000px;">
+<img src="assets/img/jiyue/ablations.JPG" style="width: 900px;">
 
 <p>A typical ablation procedure runs for 3 to 6 hours. The first 1 to 2 hours is the preparation step: The patient is getting sedation anesthesia. Physician, nurses and technicians prepare the hardware and software. Then the physician inserts catheters into the patient's left atrium. Then an initial map is acquired. Usually this will be a voltage map, which displays scar tissue locations. Based on scar tissue locations, standard ablations such as pulmonary vein isolation is done first, this takes 1 to 2 hours. If that does not terminate arrhythmia, then additional ablations will be needed: it will be a back and forth of ablation and mapping until arrhythmia can no longer be induced. This step can take a few hours. At the end of the procedure, catheters are removed, and nurses clean up the operating room. This step takes about an hour.</p>
 
-<img src="assets/img/jiyue/ablation_procedure.PNG" style="width: 1000px;">
+<img src="assets/img/jiyue/ablation_procedure.PNG" style="width: 900px;">
 
 <br>
 <h1>Atrial arrhythmia ablation challenges</h1>
 
 <p>Atrial arrhythmia ablation is challenging. Arrhythmia recurrence within 12 months is about 45%. There are mainly 3 challenges to build an ablation guidance system. The first challenge is about data sampling. A map usually consists of 2,000 electrode samples. One problem is that these samples are temporally asynchronous: Sampling a map is done region by region, however, the pattern of the rhythm can change during the 10-20 minutes of mapping. Another problem is that these samples are spatially non-uniform: Maneuvering and keeping the catheter stable at a location is technically challenging, as a result, some regions overlap while others disjoint. </p>
 
+<img src="assets/img/jiyue/recording_segment.PNG" style="width: 900px;">
 
+<p>There can be bad electrodes, or poor electrode-tissue contact issues. As illustrates below, Figure (a) shows an example of good catheter placement. Figure (b) shows an example that the catheter splines are twisted, which can cause electrodes to collide with each other, resulting in noise. There can be a lot of catheter movements. Figure (c) shows an example of spatially stable catheter position. Figure (d) shows an example of spatially unstable catheter position. The problem with unstable catheter position is that the electrogram recordings will no longer have any meaning, because they will not be from the same location. </p>
+
+<img src="assets/img/jiyue/catheter_problems.JPG" style="width: 550px;">
+
+<p>On a clean electrogram, the activation timing is easy to detect. On a fractionated electrogram, multiple local activations are detected by the electrode, it is hard to reduce to a set of single activation times.</p>
+
+<img src="assets/img/jiyue/fractionated_egm.PNG" style="width: 550px;">
+
+<p>Bipolar electrogram has a direction dependency problem. If the activation wave direction is parallel to the bipolar orentation, the bipolar electrode records a strong signal. However, if the activation wave direction is perpendicular to the bipolar orentation, the bipolar electrode records almost nothing. </p>
+
+<img src="assets/img/jiyue/unipolar_bipolar.PNG" style="width: 550px;">
+
+<p>Interpolation can introduce data outliers. We need to interpolate data from the blue dots to the mesh. We can see that in the yellow circle, there are small greenish areas which do not make too much sense, these can be interpolation errors.</p>
+
+<img src="assets/img/jiyue/interpolation_error.PNG" style="width: 300px;">
 
 </div>
 
