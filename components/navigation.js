@@ -19,8 +19,9 @@ class Navigation extends HTMLElement {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Research<i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="atrial_fibrillation_challenges.html">Atrial fibrillation ablation challenges</a></li>
-                            <li><a href="patient_specific_heart_modeling.html">Patient-specific heart modeling for arrhythmia ablation</a></li>
                             <li><a href="fiber_effect.html">Fiber effects on arrhythmia patterns</a></li>
+                            <li><a href="patient_specific_heart_modeling.html">Patient-specific heart modeling for arrhythmia ablation</a></li>
+                            <li><a href="clinical_data_processing_and_arrhythmia_detection.html">Clinical data processing and arrhythmia source detection</a></li>
                             <li><a href="heart_modeling_for_pacemakers.html">Heart modeling for pacemakers closed-loop evaluation</a></li>
                             <li><a href="pacemaker_software_verification.html">Pacemaker software verification</a></li>
                             <li><a href="model_based_design_for_pacemaker_software.html">Model-based design for pacemaker software</a></li>
