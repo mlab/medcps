@@ -34,6 +34,6 @@ function showSlides(n) {
     demo[slideIndex-1].className = demo[slideIndex-1].className + " active";
     captionText.innerHTML = demo[slideIndex-1].alt;
 
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    setTimeout(showSlides, 2500); // Change image every 2 seconds
     slideIndex = slideIndex + 1;
 }
