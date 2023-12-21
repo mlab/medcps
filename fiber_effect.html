@@ -18,6 +18,42 @@
 <!--=== Content Part ===-->
 <div class="container">
 
+<p>Our heart model needs to be patient-specific. Therefore, we process clinical data and feed them into the heart model, so that we can tune the heart model’s parameters. We have clinical data that can be transformed into the components of the heart model. But there is one heart model’s components that is not available: the myocardial fiber orientations. We don’t want to introduce new equipment or new procedures to the current ablation system. Therefore, we would like to find a way to compensate for the lack of fiber data. To do that, we need to first learn the effects of fiber on activation patterns.</p>
+
+<img src="assets/img/jiyue/fiber_not_available.PNG" style="width: 550px;">
+
+<p>We ran experiments on slab tissue. We varied the fiber angle in between endocardium and epicardium, we also varied the activation wave direction, creating a total of 50 scenarios. The results show that fiber has a stronger effect on conduction velocity when endocardium and epicardium fiber orientations are the same.</p>
+
+<img src="assets/img/jiyue/angle_difference_vs_cv.PNG" style="width: 900px;">
+
+<p>We also found that the thickness ratio in between endocardium and epicardium can affect conduction velocity. As shown in these two sets of experiments, we see that an imbalanced thickness ratio results in a difference of the activation wavefront locations.</p>
+
+<img src="assets/img/jiyue/thickness_ratio_vs_cv.PNG" style="width: 900px;">
+
+<p>The observations of the slab tissue experiments show that fiber orientations could have a large effect on activation patterns. However, the left atrium is different from a slab tissue. Fiber organizations in the left atrium are much more complex. The question we have now is: Whether observations from the slab experiments still hold true in the left atrium. To investigate fiber effects on activation patterns on the left atrium, we utilize an ex-vivo fiber database. We register 7 different patient’s fiber data onto the same left atrium. And run the same set of arrhythmias to observe the differences in activation patterns.</p>
+
+<img src="assets/img/jiyue/fiber_effect_experiments.PNG" style="width: 900px;">
+
+<p>To register fiber data from one mesh to another mesh. We first apply a non-rigid iterative closest point transformation to the mesh. As illustrated here, the magenta mesh is morphed into the shape of the blue mesh. Then we apply a reference frame transformation to the fiber vectors.</p>
+
+<img src="assets/img/jiyue/fiber_registration.PNG" style="width: 900px;">
+
+<p>Now, let’s look at the results of the arrhythmia simulations with different fibers. The figures in the same row have the same arrhythmia, the difference is in the fiber data. We can see that fiber does not result in large differences in activation patterns. The average activation time difference is 7.8 ms. Or 4.3% of the activation time range.</p>
+
+<img src="assets/img/jiyue/lat_maps_examples.PNG" style="width: 900px;">
+
+<p>When we take a closer look, we find that fibers do affect local activation patterns. If activation direction is perpendicular to fiber orientation, conduction is slower. If activation direction is parallel to fiber orientation, conduction is faster.</p>
+
+<img src="assets/img/jiyue/local_effect.PNG" style="width: 900px;">
+
+<p>However, fiber’s local effect does not accumulate. Because fiber organizations in the left atrium vary a lot. As shown in figure (c) below, for an activation travels along the red arrow, its speed can increase and decrease, but the overall speed will not change much. We called this the cancellation effect.</p>
+
+<img src="assets/img/jiyue/cancellation_effect.PNG" style="width: 900px;">
+
+<p>Figure (a) below shows a path from point A to point B. The conduction speed along this path increases and decreases due to different fiber organizations. But the average conduction speeds are similar regardless of different fiber organizations.</p>
+
+<img src="assets/img/jiyue/cv.PNG" style="width: 550px;">
+
 </div>
 
 <footer-component></footer-component>
