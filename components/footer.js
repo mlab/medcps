@@ -35,7 +35,7 @@ class Footer extends HTMLElement {
             </div>
             <div class="col-md-6">	
               <a href="http://precise.seas.upenn.edu/">
-                <img src="assets/img/precise.png" alt="" height="50" class="pull-right" id="logo-footer" />
+                <img src="assets/img/precise.png" alt="" height="50" class="pull-right" id="logo-footer"/>
               </a>
             </div>
           </div>
