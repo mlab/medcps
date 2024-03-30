@@ -63,7 +63,7 @@ set(Config.Table_node,'ColumnName',{'Name','State','Terp_c','Terp_d','Trrp_c','T
 set(Config.Table_node,'ColumnWidth',{55,50,50,50,50,50,50,50,20});
 set(Config.Table_node,'ColumnEditable',[true true true true true true true true true]);
 
-% path_ind={'Idle','Ante','Retro','Double','Conflict'};
+% path_ind={'Idle','Ante','Retro','Conflict','Double'};
 Config.Table_path=uitable('Position',[570,250,480,200],'BackgroundColor',[1,1,1],'CellEditCallback',@para_edit);
 set(Config.Table_path,'ColumnName',{'Name','State','En','Ex','Amp','An_s','Re_s','An_c','An_d','Re_c','Re_d'},'RowName','numbered');
 % set(Config.Table_path,'ColumnFormat',{[],path_ind,node_table(:,1)',node_table(:,1)',[],[],[]});
@@ -96,7 +96,7 @@ global path_table
 global probe_table
 global Config
 
-% path_ind={'Idle','Ante','Retro','Double','Conflict'};
+% path_ind={'Idle','Ante','Retro','Conflict','Double'};
 
 switch hObject
     case Config.Table_node
